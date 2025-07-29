@@ -11,7 +11,7 @@ const Index = () => {
             <img src="/lovable-uploads/80b908cd-8cc7-4d1b-9b38-800cd7593430.png" alt="BkPlus Logo" className="w-8 h-8" />
             <div className="flex flex-col px-3 py-1 rounded-lg bg-gradient-to-r from-brand-teal/10 to-brand-blue/10 backdrop-blur-sm">
               <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BKPLUS</span>
-              <span className="text-sm text-muted-foreground leading-tight">software</span>
+              <span className="text-muted-foreground leading-tight text-sm font-medium">software</span>
             </div>
           </div>
           <nav className="hidden md:flex space-x-8">
