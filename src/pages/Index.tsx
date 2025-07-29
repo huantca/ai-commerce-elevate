@@ -8,7 +8,7 @@ const Index = () => {
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
-            <img src="/lovable-uploads/f6db4384-f3bd-48f8-8bc6-e5a86143f5e9.png" alt="BkPlus Logo" className="w-8 h-8 [mask:linear-gradient(135deg,hsl(var(--brand-teal)),hsl(var(--brand-blue)))] bg-gradient-to-br from-brand-teal to-brand-blue" style={{maskImage: 'url(/lovable-uploads/f6db4384-f3bd-48f8-8bc6-e5a86143f5e9.png)', maskSize: 'contain', maskRepeat: 'no-repeat', maskPosition: 'center', backgroundColor: 'transparent'}} />
+            <img src="/lovable-uploads/80b908cd-8cc7-4d1b-9b38-800cd7593430.png" alt="BkPlus Logo" className="w-8 h-8" />
             <div className="flex flex-col px-3 py-1 rounded-lg bg-gradient-to-r from-brand-teal/10 to-brand-blue/10 backdrop-blur-sm">
               <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BKPLUS</span>
               <span className="text-sm text-muted-foreground leading-tight">software</span>
