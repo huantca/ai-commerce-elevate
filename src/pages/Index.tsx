@@ -9,12 +9,9 @@ const Index = () => {
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <img src="/lovable-uploads/f67962e3-3754-4f9f-a219-7895929b4f12.png" alt="BkPlus Logo" className="w-10 h-10" />
-            <div className="flex flex-col">
-              <span className="text-xl font-bold leading-tight">BkPlus</span>
-              <span className="text-sm text-muted-foreground leading-tight">software</span>
-            </div>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BkPlus</span>
+            <span className="text-sm text-muted-foreground leading-tight">software</span>
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
@@ -378,12 +375,9 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <div className="flex items-center space-x-3 mb-4">
-                <img src="/lovable-uploads/f67962e3-3754-4f9f-a219-7895929b4f12.png" alt="BkPlus Logo" className="w-8 h-8" />
-                <div className="flex flex-col">
-                  <span className="text-xl font-bold leading-tight">BkPlus</span>
-                  <span className="text-sm text-muted-foreground leading-tight">software</span>
-                </div>
+              <div className="flex flex-col mb-4">
+                <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BkPlus</span>
+                <span className="text-sm text-muted-foreground leading-tight">software</span>
               </div>
               <p className="text-muted-foreground">
                 Transforming eCommerce with intelligent AI personalization solutions.
