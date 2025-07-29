@@ -2,15 +2,14 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight } from "lucide-react";
-
 const Index = () => {
-  return (
-    <div className="min-h-screen bg-background">
+  return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex flex-col">
-            <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BkPlus</span>
+            <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BKPLUS
+          </span>
             <span className="text-sm text-muted-foreground leading-tight">software</span>
           </div>
           <nav className="hidden md:flex space-x-8">
@@ -190,9 +189,7 @@ const Index = () => {
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary">Clothing Store</Badge>
                   <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
                   </div>
                 </div>
                 <CardTitle>Fashion Forward Co.</CardTitle>
@@ -224,9 +221,7 @@ const Index = () => {
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary">Home & Living</Badge>
                   <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
                   </div>
                 </div>
                 <CardTitle>Modern Living Hub</CardTitle>
@@ -258,9 +253,7 @@ const Index = () => {
                 <div className="flex items-center justify-between">
                   <Badge variant="secondary">Multi-Brand</Badge>
                   <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                    ))}
+                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
                   </div>
                 </div>
                 <CardTitle>Style & Home Collective</CardTitle>
@@ -416,8 +409,6 @@ const Index = () => {
           </div>
         </div>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
