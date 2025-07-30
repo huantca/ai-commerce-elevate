@@ -287,7 +287,9 @@ const Index = () => {
       </section>
 
       {/* Process Section */}
-      <section id="process" className="py-20 px-4" style={{ backgroundColor: '#F6F8FC' }}>
+      <section id="process" className="py-20 px-4" style={{
+      backgroundColor: '#F6F8FC'
+    }}>
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Process</h2>
@@ -304,20 +306,20 @@ const Index = () => {
               <div className="absolute top-44 left-1/6 right-1/6 h-0.5 bg-muted-foreground/20"></div>
               
               {/* Timeline nodes */}
-              <div className="absolute top-11 left-1/6 w-2 h-2 bg-primary rounded-full -ml-1"></div>
+              
               <div className="absolute top-11 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
               <div className="absolute top-11 right-1/6 w-2 h-2 bg-primary rounded-full -mr-1"></div>
-              <div className="absolute top-43 left-1/6 w-2 h-2 bg-primary rounded-full -ml-1"></div>
+              
               <div className="absolute top-43 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
-              <div className="absolute top-43 right-1/6 w-2 h-2 bg-primary rounded-full -mr-1"></div>
+              
             </div>
 
             {/* Mobile Timeline */}
             <div className="lg:hidden absolute left-8 top-0 bottom-0 w-0.5 bg-muted-foreground/20"></div>
             <div className="lg:hidden">
-              {[...Array(6)].map((_, i) => (
-                <div key={i} className="absolute left-7 w-2 h-2 bg-primary rounded-full" style={{ top: `${i * 160 + 48}px` }}></div>
-              ))}
+              {[...Array(6)].map((_, i) => <div key={i} className="absolute left-7 w-2 h-2 bg-primary rounded-full" style={{
+              top: `${i * 160 + 48}px`
+            }}></div>)}
             </div>
 
             {/* Process Cards Grid */}
@@ -331,7 +333,9 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Xác định tính năng cốt lõi, nhu cầu người dùng và yêu cầu kỹ thuật.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.1s' }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
+              animationDelay: '0.1s'
+            }}>
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <PenTool className="w-6 h-6 text-purple-600" />
                 </div>
@@ -339,7 +343,9 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Chọn công nghệ/khung, tạo wireframe, prototype và UI.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.2s' }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
+              animationDelay: '0.2s'
+            }}>
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Code className="w-6 h-6 text-green-600" />
                 </div>
@@ -348,7 +354,9 @@ const Index = () => {
               </div>
 
               {/* Row 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.3s' }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
+              animationDelay: '0.3s'
+            }}>
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Settings className="w-6 h-6 text-orange-600" />
                 </div>
@@ -356,7 +364,9 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Kiểm thử nghiêm ngặt để phát hiện và sửa mọi lỗi.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.4s' }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
+              animationDelay: '0.4s'
+            }}>
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                   <Rocket className="w-6 h-6 text-red-600" />
                 </div>
@@ -364,7 +374,9 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Đưa sản phẩm lên môi trường thực tế/store và cấu hình vận hành.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.5s' }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
+              animationDelay: '0.5s'
+            }}>
                 <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-teal-600" />
                 </div>
