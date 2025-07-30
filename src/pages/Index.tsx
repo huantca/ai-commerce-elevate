@@ -293,6 +293,9 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Process</h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              A clear process — from ideation and design to deployment and support — ensures every product meets the highest standards.
+            </p>
           </div>
 
           <div className="relative max-w-6xl mx-auto">
