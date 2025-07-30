@@ -179,106 +179,49 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Proven Results for eCommerce Success
+              24/7 AI Chatbot
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Real transformations from clothing and home & living stores
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <Card>
+          <div className="max-w-4xl mx-auto">
+            <Card className="mb-8">
               <CardHeader>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary">Clothing Store</Badge>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
-                  </div>
-                </div>
-                <CardTitle>Fashion Forward Co.</CardTitle>
-                <CardDescription>
-                  Premium women's clothing retailer
-                </CardDescription>
+                <CardTitle className="text-2xl text-primary">The Challenge:</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-3 bg-muted rounded-lg">
-                      <div className="text-2xl font-bold text-primary">65%</div>
-                      <div className="text-sm text-muted-foreground">Sales Increase</div>
-                    </div>
-                    <div className="text-center p-3 bg-muted rounded-lg">
-                      <div className="text-2xl font-bold text-primary">40%</div>
-                      <div className="text-sm text-muted-foreground">Search Accuracy</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    "AI Commerce transformed our customer experience. Our search conversion rate doubled within 3 months."
-                  </p>
-                </div>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground">
+                  Most of the online shopping occurs in the evening, when human support team are typically offline. 
+                  Shoppers decide within 7-10 seconds whether should spend time and money on your site and when they don't feel it's responsive and supportive enough, they might return straight back to google search with other stores with the same offerings.
+                </p>
+                <p className="text-muted-foreground">
+                  Cart abandonment is popular with 30% of returns from buyer that feeling unsure at the checkout, the site misses out on the crucial moment of guidance. 
+                  Let alone the different time zones, weekends or language gaps, the store is losing massive sales potential.
+                </p>
+                <p className="text-muted-foreground">
+                  For larger expensive goods ⇒ the customers need more assurance and need instantaneous support. 
+                  The owners are interested in reducing the cost associated with having an employee that has to answer all the questions. But the worker has already worked from 9 to 5 Monday to friday, and the customer is on the website on saturday night at 9 P.M.
+                </p>
               </CardContent>
             </Card>
 
             <Card>
               <CardHeader>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary">Home & Living</Badge>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
-                  </div>
-                </div>
-                <CardTitle>Modern Living Hub</CardTitle>
-                <CardDescription>
-                  Contemporary furniture and decor
-                </CardDescription>
+                <CardTitle className="text-2xl text-primary">The Solutions</CardTitle>
               </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-3 bg-muted rounded-lg">
-                      <div className="text-2xl font-bold text-primary">52%</div>
-                      <div className="text-sm text-muted-foreground">Revenue Growth</div>
-                    </div>
-                    <div className="text-center p-3 bg-muted rounded-lg">
-                      <div className="text-2xl font-bold text-primary">35%</div>
-                      <div className="text-sm text-muted-foreground">AOV Increase</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    "The personalized recommendations are incredibly accurate. Our customers love the shopping experience."
-                  </p>
+              <CardContent className="space-y-4">
+                <div className="space-y-3">
+                  <h4 className="font-semibold">Smart, always-on 1:1 shopping experience</h4>
+                  <ul className="space-y-2 text-muted-foreground">
+                    <li>• Answer questions instantly, from sizing and shipping to compatibility and use cases</li>
+                    <li>• Guide decision-making, especially for shoppers who are overwhelmed or comparing similar products</li>
+                    <li>• Increase AOV, using behavioral signal to surfaces add-ons, better-value bundles</li>
+                    <li>• Recover exit-intent visitors, not with a generic pop-up but with personal suggestions tailored to what they've viewed or added to cart</li>
+                  </ul>
                 </div>
-              </CardContent>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <Badge variant="secondary">Multi-Brand</Badge>
-                  <div className="flex items-center gap-1">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-primary text-primary" />)}
-                  </div>
-                </div>
-                <CardTitle>Style & Home Collective</CardTitle>
-                <CardDescription>
-                  Fashion and home goods marketplace
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-3 bg-muted rounded-lg">
-                      <div className="text-2xl font-bold text-primary">78%</div>
-                      <div className="text-sm text-muted-foreground">Customer Retention</div>
-                    </div>
-                    <div className="text-center p-3 bg-muted rounded-lg">
-                      <div className="text-2xl font-bold text-primary">45%</div>
-                      <div className="text-sm text-muted-foreground">Support Efficiency</div>
-                    </div>
-                  </div>
-                  <p className="text-sm text-muted-foreground">
-                    "The AI chatbot handles 80% of customer inquiries automatically while maintaining high satisfaction."
-                  </p>
+                <div className="pt-4">
+                  <Button variant="outline" className="w-full md:w-auto">
+                    View Details
+                  </Button>
                 </div>
               </CardContent>
             </Card>
