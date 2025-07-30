@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight } from "lucide-react";
+import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield } from "lucide-react";
 const Index = () => {
   return <div className="min-h-screen bg-background">
       {/* Header */}
@@ -17,6 +17,7 @@ const Index = () => {
           <nav className="hidden md:flex space-x-8">
             <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
             <a href="#case-studies" className="text-muted-foreground hover:text-foreground transition-colors">Case Studies</a>
+            <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Process</a>
             <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">Resources</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
           </nav>
@@ -281,6 +282,96 @@ const Index = () => {
                 </div>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="process" className="py-20 px-4" style={{ backgroundColor: '#F6F8FC' }}>
+        <div className="container mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Process</h2>
+          </div>
+
+          <div className="relative max-w-6xl mx-auto">
+            {/* Desktop Timeline */}
+            <div className="hidden lg:block">
+              {/* Horizontal line for top row */}
+              <div className="absolute top-12 left-1/6 right-1/6 h-0.5 bg-muted-foreground/20"></div>
+              {/* Vertical line down */}
+              <div className="absolute top-12 right-1/6 w-0.5 h-32 bg-muted-foreground/20"></div>
+              {/* Horizontal line for bottom row */}
+              <div className="absolute top-44 left-1/6 right-1/6 h-0.5 bg-muted-foreground/20"></div>
+              
+              {/* Timeline nodes */}
+              <div className="absolute top-11 left-1/6 w-2 h-2 bg-primary rounded-full -ml-1"></div>
+              <div className="absolute top-11 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
+              <div className="absolute top-11 right-1/6 w-2 h-2 bg-primary rounded-full -mr-1"></div>
+              <div className="absolute top-43 left-1/6 w-2 h-2 bg-primary rounded-full -ml-1"></div>
+              <div className="absolute top-43 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
+              <div className="absolute top-43 right-1/6 w-2 h-2 bg-primary rounded-full -mr-1"></div>
+            </div>
+
+            {/* Mobile Timeline */}
+            <div className="lg:hidden absolute left-8 top-0 bottom-0 w-0.5 bg-muted-foreground/20"></div>
+            <div className="lg:hidden">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="absolute left-7 w-2 h-2 bg-primary rounded-full" style={{ top: `${i * 160 + 48}px` }}></div>
+              ))}
+            </div>
+
+            {/* Process Cards Grid */}
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+              {/* Row 1 */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8">
+                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                  <Search className="w-6 h-6 text-blue-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Nghiên cứu</h3>
+                <p className="text-muted-foreground text-sm">Xác định tính năng cốt lõi, nhu cầu người dùng và yêu cầu kỹ thuật.</p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.1s' }}>
+                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                  <PenTool className="w-6 h-6 text-purple-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Thiết kế</h3>
+                <p className="text-muted-foreground text-sm">Chọn công nghệ/khung, tạo wireframe, prototype và UI.</p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.2s' }}>
+                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                  <Code className="w-6 h-6 text-green-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Phát triển</h3>
+                <p className="text-muted-foreground text-sm">Áp dụng test‑driven/CI để đảm bảo chất lượng và tiến độ.</p>
+              </div>
+
+              {/* Row 2 */}
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.3s' }}>
+                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
+                  <Settings className="w-6 h-6 text-orange-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Kiểm thử</h3>
+                <p className="text-muted-foreground text-sm">Kiểm thử nghiêm ngặt để phát hiện và sửa mọi lỗi.</p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.4s' }}>
+                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
+                  <Rocket className="w-6 h-6 text-red-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Triển khai</h3>
+                <p className="text-muted-foreground text-sm">Đưa sản phẩm lên môi trường thực tế/store và cấu hình vận hành.</p>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{ animationDelay: '0.5s' }}>
+                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
+                  <Shield className="w-6 h-6 text-teal-600" />
+                </div>
+                <h3 className="text-lg font-semibold mb-2">Bảo hành & Bảo trì</h3>
+                <p className="text-muted-foreground text-sm">Giám sát hiệu năng, cập nhật, xử lý sự cố nhanh chóng.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
