@@ -5,9 +5,18 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield } from "lucide-react";
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
+  
+  // Animation hooks for different sections
+  const heroAnimation = useScrollAnimation();
+  const servicesAnimation = useScrollAnimation();
+  const caseStudiesAnimation = useScrollAnimation();
+  const processAnimation = useScrollAnimation();
+  const resourcesAnimation = useScrollAnimation();
+  const ctaAnimation = useScrollAnimation();
   return <div className="min-h-screen bg-background">
       {/* Header */}
       <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
@@ -34,7 +43,7 @@ const Index = () => {
 
       {/* Hero Section */}
       <section className="py-20 px-4">
-        <div className="container mx-auto text-center max-w-4xl">
+        <div ref={heroAnimation.ref} className={`container mx-auto text-center max-w-4xl scroll-animate ${heroAnimation.isVisible ? 'visible' : ''}`}>
           <Badge variant="secondary" className="mb-6">Trusted by 20+ eCommerce Leaders & CX Managers</Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">Boost Your eCommerce with AI Personalization</h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">Grow your business 24/7 with AI. Our AI Sales Assistants works while you sleep, boosts conversions with Smart Search, and drives upsells with Smart Recommendations
@@ -80,9 +89,9 @@ const Index = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Maximize Every Visit: AI That Knows Your Customers' Shopping Habit Better Than You Do</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div ref={servicesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-3 gap-8 scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}>
             {/* Smart Search Engine */}
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="glow-hover card-hover border-2 hover:border-primary/50 transition-all duration-300">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Search className="w-6 h-6 text-primary" />
@@ -111,7 +120,7 @@ const Index = () => {
             </Card>
 
             {/* AI-Powered Chatbot */}
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="glow-hover card-hover border-2 hover:border-primary/50 transition-all duration-300 delay-1">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <MessageSquare className="w-6 h-6 text-primary" />
@@ -140,7 +149,7 @@ const Index = () => {
             </Card>
 
             {/* Smart Recommendations */}
-            <Card className="border-2 hover:border-primary/50 transition-colors">
+            <Card className="glow-hover card-hover border-2 hover:border-primary/50 transition-all duration-300 delay-2">
               <CardHeader>
                 <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <Target className="w-6 h-6 text-primary" />
@@ -179,8 +188,8 @@ const Index = () => {
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Don't just take our word. Here are what our customers say about us!</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {caseStudiesData.map((study, index) => <Card key={study.id} className="hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
+          <div ref={caseStudiesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate ${caseStudiesAnimation.isVisible ? 'visible' : ''}`}>
+            {caseStudiesData.map((study, index) => <Card key={study.id} className={`glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-${Math.min(index + 1, 6)}`}>
                 <CardHeader>
                   <Badge variant="secondary" className="w-fit mb-2">{study.subtitle}</Badge>
                   <CardTitle className="text-xl">{study.title}</CardTitle>
@@ -282,9 +291,9 @@ const Index = () => {
             </div>
 
             {/* Process Cards Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
+            <div ref={processAnimation.ref} className={`grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 scroll-animate ${processAnimation.isVisible ? 'visible' : ''}`}>
               {/* Row 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8">
+              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-1">
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <Search className="w-6 h-6 text-blue-600" />
                 </div>
@@ -292,9 +301,7 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Xác định tính năng cốt lõi, nhu cầu người dùng và yêu cầu kỹ thuật.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
-              animationDelay: '0.1s'
-            }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-2">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <PenTool className="w-6 h-6 text-purple-600" />
                 </div>
@@ -302,9 +309,7 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Chọn công nghệ/khung, tạo wireframe, prototype và UI.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
-              animationDelay: '0.2s'
-            }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-3">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Code className="w-6 h-6 text-green-600" />
                 </div>
@@ -313,9 +318,7 @@ const Index = () => {
               </div>
 
               {/* Row 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
-              animationDelay: '0.3s'
-            }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-4">
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Settings className="w-6 h-6 text-orange-600" />
                 </div>
@@ -323,9 +326,7 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Kiểm thử nghiêm ngặt để phát hiện và sửa mọi lỗi.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
-              animationDelay: '0.4s'
-            }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-5">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                   <Rocket className="w-6 h-6 text-red-600" />
                 </div>
@@ -333,9 +334,7 @@ const Index = () => {
                 <p className="text-muted-foreground text-sm">Đưa sản phẩm lên môi trường thực tế/store và cấu hình vận hành.</p>
               </div>
 
-              <div className="bg-white rounded-2xl p-6 shadow-sm animate-fade-in relative lg:pl-8" style={{
-              animationDelay: '0.5s'
-            }}>
+              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-6">
                 <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-teal-600" />
                 </div>
@@ -359,8 +358,8 @@ const Index = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <Card className="hover:shadow-lg transition-shadow">
+          <div ref={resourcesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-3 gap-8 scroll-animate ${resourcesAnimation.isVisible ? 'visible' : ''}`}>
+            <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300">
               <CardHeader>
                 <BarChart3 className="w-8 h-8 text-primary mb-2" />
                 <CardTitle>eCommerce AI Guide</CardTitle>
@@ -375,7 +374,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-1">
               <CardHeader>
                 <Users className="w-8 h-8 text-primary mb-2" />
                 <CardTitle>Personalization Webinar</CardTitle>
@@ -390,7 +389,7 @@ const Index = () => {
               </CardContent>
             </Card>
 
-            <Card className="hover:shadow-lg transition-shadow">
+            <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-2">
               <CardHeader>
                 <MessageSquare className="w-8 h-8 text-primary mb-2" />
                 <CardTitle>FAQ Center</CardTitle>
@@ -410,7 +409,7 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-primary text-primary-foreground">
-        <div className="container mx-auto text-center">
+        <div ref={ctaAnimation.ref} className={`container mx-auto text-center scroll-animate ${ctaAnimation.isVisible ? 'visible' : ''}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Ready to Transform Your eCommerce Store?
           </h2>
