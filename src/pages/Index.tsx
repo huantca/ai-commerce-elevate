@@ -221,7 +221,7 @@ const Index = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {caseStudies.map(study => <Card key={study.id} className="hover:shadow-lg transition-shadow">
+            {caseStudies.map((study, index) => <Card key={study.id} className="hover:shadow-lg transition-shadow animate-fade-in" style={{ animationDelay: `${index * 0.2}s` }}>
                 <CardHeader>
                   <Badge variant="secondary" className="w-fit mb-2">{study.subtitle}</Badge>
                   <CardTitle className="text-xl">{study.title}</CardTitle>
