@@ -31,6 +31,7 @@
   mask-composite: xor;
   opacity: 0;
   transition: opacity 0.3s ease;
+  pointer-events: none;
 }
 
 .glow-hover:hover::before {
