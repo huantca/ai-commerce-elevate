@@ -5,12 +5,20 @@ export const caseStudiesData = [
     title: "24/7 Sales Support",
     subtitle: "AI Sales Assistant",
     summary: "You probably don't want to leave your customer waiting, confusing when the support teams are unavailable",
-    challenge: "Most of the online shopping occurs in the evening, when human support team are typically offline. Shoppers decide within 7-10 seconds whether should spend time and money on your site and when they don't feel it's responsive and supportive enough, they might return straight back to google search with other stores with the same offerings. Cart abandonment is popular with 30% of returns from buyer that feeling unsure at the checkout, the site misses out on the crucial moment of guidance. Let alone the different time zones, weekends or language gaps, the store is losing massive sales potential. For larger expensive goods ⇒ the customers need more assurance and need instantaneous support. The owners are interested in reducing the cost associated with having an employee that has to answer all the questions. But the worker has already worked from 9 to 5 Monday to friday, and the customer is on the website on saturday night at 9 P.M.",
+    challenge: "**The Client:**\nA Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over €14,694 in sales.\n\n**The Challenge:**\n• 50–55% of online shopping occurs when support teams are offline—causing delays, confusion, or cart abandonment.\n• Employees wasted time answering repetitive customer queries.\n• Shoppers had difficulty finding the right products quickly.",
     solutions: [
-      "Answer questions instantly, from sizing and shipping to compatibility and use cases",
-      "Guide decision-making, especially for shoppers who are overwhelmed or comparing similar products",
-      "Increase AOV, using behavioral signal to surfaces add-ons, better-value bundles",
-      "Recover exit-intent visitors, not with a generic pop-up but with personal suggestions tailored to what they've viewed or added to cart"
+      "**Our Solutions:**",
+      "Recognizing the sales loss due to time zone differences, weekends, and language barriers, the client adopted our AI chatbot. The chatbot was embedded into their website to provide instant support around the clock.",
+      "",
+      "**The Results:**",
+      "• 30+ hours of support time saved by automating routine inquiries",
+      "• 80% of questions like 'Where's my order?' were resolved without human agents",
+      "• 20% of queries were smoothly escalated to human support when needed",
+      "• Using a management dashboard, the client trained the chatbot to match their tone and brand",
+      "• In 90 days, it handled 486+ customer chats, cutting manual workload and boosting response speed",
+      "",
+      "**Tech Stack:**",
+      "Python, Node.js, Angular"
     ],
     stats: [
       {
