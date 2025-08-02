@@ -250,7 +250,7 @@ const Index = () => {
                           </div>
                           
                           <div>
-                            <h3 className="text-lg font-bold mb-4 text-sky-400">The Results:</h3>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Results:</h3>
                             <ul className="space-y-3">
                               <li className="flex items-start gap-3">
                                 <span className="text-primary font-bold mt-1">•</span>
