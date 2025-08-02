@@ -282,6 +282,69 @@ const Index = () => {
                             </p>
                           </div>
                         </div>}
+                        
+                        {study.id === "smart-search" && <div className="space-y-8 py-4">
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Client:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              A German wall art stores integrates smart search and recommendation features into their ecommerce platform, which helps them make 15,000 euros in the last 90 days with an increase of 0.8 products/basket
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Challenge:</h3>
+                            <ul className="space-y-3">
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Struggling to show customers the right related products to boost cross-selling opportunities</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Needed to improve the overall user experience in their webshop with a more intuitive search to help drive sales</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Wanted to increase upselling with more relevant product suggestions instead of low-margin items</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Our Solutions:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Realizing the challenge and the need to have an advanced functionality that can surpass the standard search bar of their webshop. With smart search engine, they have been able to display precisely what the customer wants and have removed any manual work associated.
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Results:</h3>
+                            <ul className="space-y-3">
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">12.5% increase in revenue</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">23% increase in basket size</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">14% higher average order value</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Top 100 most commonly spelled variations</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Tech Stack:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Python, Java, Tailwind CSS
+                            </p>
+                          </div>
+                        </div>}
                     </DialogContent>
                   </Dialog>
                 </CardContent>
