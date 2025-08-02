@@ -1,15 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield } from "lucide-react";
-import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
-  const [openDialog, setOpenDialog] = useState<string | null>(null);
-  
   // Animation hooks for different sections
   const heroAnimation = useScrollAnimation();
   const servicesAnimation = useScrollAnimation();
@@ -205,46 +201,6 @@ const Index = () => {
                       </div>)}
                   </div>
                   
-                  <Dialog open={openDialog === study.id} onOpenChange={open => setOpenDialog(open ? study.id : null)}>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" className="w-full">
-                        View Details
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-3xl max-h-[80vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle className="text-2xl">{study.title}</DialogTitle>
-                        <DialogDescription>{study.subtitle}</DialogDescription>
-                      </DialogHeader>
-                      
-                      <div className="space-y-6">
-                        <div>
-                          <h3 className="text-xl font-semibold text-primary mb-3">The Challenge</h3>
-                          <p className="text-muted-foreground leading-relaxed">{study.challenge}</p>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xl font-semibold text-primary mb-3">Our Solutions</h3>
-                          <ul className="space-y-2">
-                            {study.solutions.map((solution, index) => <li key={index} className="flex items-start gap-2">
-                                <CheckCircle className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                                <span className="text-muted-foreground">{solution}</span>
-                              </li>)}
-                          </ul>
-                        </div>
-                        
-                        <div>
-                          <h3 className="text-xl font-semibold text-primary mb-3">Results</h3>
-                          <div className="grid grid-cols-2 gap-4">
-                            {study.stats.map((stat, index) => <div key={index} className="text-center p-4 bg-muted rounded-lg">
-                                <div className="text-3xl font-bold text-primary">{stat.value}</div>
-                                <div className="text-sm text-muted-foreground">{stat.label}</div>
-                              </div>)}
-                          </div>
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
                 </CardContent>
               </Card>)}
           </div>

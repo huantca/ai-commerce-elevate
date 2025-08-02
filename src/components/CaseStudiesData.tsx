@@ -7,10 +7,10 @@ export const caseStudiesData = [
     summary: "You probably don't want to leave your customer waiting, confusing when the support teams are unavailable",
     client: "A Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over €14,694 in sales",
     challenge: [
-      "An estimated 50–55% of online shopping happens when support teams are unavailable—leaving customers waiting, confused, frustrated, or abandoning their carts entirely."
-        "Employees spent too much time answering repetitive questions",
+      "An estimated 50–55% of online shopping happens when support teams are unavailable—leaving customers waiting, confused, frustrated, or abandoning their carts entirely.",
+      "Employees spent too much time answering repetitive questions",
       "Customers struggled to find products quickly"
-    ], 
+    ],
     solutions: [
       "Answer questions instantly, from sizing and shipping to compatibility and use cases",
       "Guide decision-making, especially for shoppers who are overwhelmed or comparing similar products",
