@@ -1,11 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield } from "lucide-react";
+import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const Index = () => {
+  const [openDialog, setOpenDialog] = useState<string | null>(null);
+  
   // Animation hooks for different sections
   const heroAnimation = useScrollAnimation();
   const servicesAnimation = useScrollAnimation();
@@ -201,12 +205,93 @@ const Index = () => {
                       </div>)}
                   </div>
                   
+                  <Dialog open={openDialog === study.id} onOpenChange={open => setOpenDialog(open ? study.id : null)}>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full">
+                        View Details
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+                      <DialogHeader>
+                        <DialogTitle className="text-2xl">{study.title}</DialogTitle>
+                        <DialogDescription>{study.subtitle}</DialogDescription>
+                      </DialogHeader>
+                      
+                      {study.id === "ai-chatbot" && (
+                        <div className="space-y-8 py-4">
+                          <div>
+                            <h3 className="text-lg font-bold text-foreground mb-4">The Client:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              A Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over €14,694 in sales.
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold text-foreground mb-4">The Challenge:</h3>
+                            <ul className="space-y-3">
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">50–55% of online shopping occurs when support teams are offline—causing delays, confusion, or cart abandonment.</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Employees wasted time answering repetitive customer queries.</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Shoppers had difficulty finding the right products quickly.</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold text-foreground mb-4">Our Solutions:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Recognizing the sales loss due to time zone differences, weekends, and language barriers, the client adopted our AI chatbot. The chatbot was embedded into their website to provide instant support around the clock.
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold text-foreground mb-4">The Results:</h3>
+                            <ul className="space-y-3">
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">30+ hours of support time saved by automating routine inquiries</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">80% of questions like "Where's my order?" were resolved without human agents</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">20% of queries were smoothly escalated to human support when needed</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Using a management dashboard, the client trained the chatbot to match their tone and brand</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">In 90 days, it handled 486+ customer chats, cutting manual workload and boosting response speed</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold text-foreground mb-4">Tech Stack:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Python, Node.js, Angular
+                            </p>
+                          </div>
+                        </div>
+                      )}
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>)}
           </div>
         </div>
       </section>
-
       {/* Process Section */}
       <section id="process" className="py-20 px-4" style={{
       backgroundColor: '#F6F8FC'
