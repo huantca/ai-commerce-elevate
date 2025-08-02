@@ -6,10 +6,9 @@ import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
-
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
-  
+
   // Animation hooks for different sections
   const heroAnimation = useScrollAnimation();
   const servicesAnimation = useScrollAnimation();
@@ -217,17 +216,16 @@ const Index = () => {
                         <DialogDescription>{study.subtitle}</DialogDescription>
                       </DialogHeader>
                       
-                      {study.id === "ai-chatbot" && (
-                        <div className="space-y-8 py-4">
+                      {study.id === "ai-chatbot" && <div className="space-y-8 py-4">
                           <div>
-                            <h3 className="text-lg font-bold text-foreground mb-4">The Client:</h3>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Client:</h3>
                             <p className="text-muted-foreground leading-relaxed">
                               A Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over €14,694 in sales.
                             </p>
                           </div>
                           
                           <div>
-                            <h3 className="text-lg font-bold text-foreground mb-4">The Challenge:</h3>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Challenge:</h3>
                             <ul className="space-y-3">
                               <li className="flex items-start gap-3">
                                 <span className="text-primary font-bold mt-1">•</span>
@@ -245,14 +243,14 @@ const Index = () => {
                           </div>
                           
                           <div>
-                            <h3 className="text-lg font-bold text-foreground mb-4">Our Solutions:</h3>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Our Solutions:</h3>
                             <p className="text-muted-foreground leading-relaxed">
                               Recognizing the sales loss due to time zone differences, weekends, and language barriers, the client adopted our AI chatbot. The chatbot was embedded into their website to provide instant support around the clock.
                             </p>
                           </div>
                           
                           <div>
-                            <h3 className="text-lg font-bold text-foreground mb-4">The Results:</h3>
+                            <h3 className="text-lg font-bold mb-4 text-sky-400">The Results:</h3>
                             <ul className="space-y-3">
                               <li className="flex items-start gap-3">
                                 <span className="text-primary font-bold mt-1">•</span>
@@ -278,13 +276,12 @@ const Index = () => {
                           </div>
                           
                           <div>
-                            <h3 className="text-lg font-bold text-foreground mb-4">Tech Stack:</h3>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Tech Stack:</h3>
                             <p className="text-muted-foreground leading-relaxed">
                               Python, Node.js, Angular
                             </p>
                           </div>
-                        </div>
-                      )}
+                        </div>}
                     </DialogContent>
                   </Dialog>
                 </CardContent>
