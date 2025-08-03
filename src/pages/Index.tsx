@@ -2,7 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield } from "lucide-react";
+import { Separator } from "@/components/ui/separator";
+import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2 } from "lucide-react";
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -210,204 +211,354 @@ const Index = () => {
                         View Details
                       </Button>
                     </DialogTrigger>
-                    <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
-                      <DialogHeader>
-                        <DialogTitle className="text-2xl">{study.title}</DialogTitle>
-                        <DialogDescription>{study.subtitle}</DialogDescription>
-                      </DialogHeader>
-                      
-                      {study.id === "ai-chatbot" && <div className="space-y-8 py-4">
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Client:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              A Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over €14,694 in sales.
-                            </p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Challenge:</h3>
-                            <ul className="space-y-3">
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">50–55% of online shopping occurs when support teams are offline—causing delays, confusion, or cart abandonment.</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Employees wasted time answering repetitive customer queries.</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Shoppers had difficulty finding the right products quickly.</span>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Our Solutions:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              Recognizing the sales loss due to time zone differences, weekends, and language barriers, the client adopted our AI chatbot. The chatbot was embedded into their website to provide instant support around the clock.
-                            </p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Results:</h3>
-                            <ul className="space-y-3">
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">30+ hours of support time saved by automating routine inquiries</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">80% of questions like "Where's my order?" were resolved without human agents</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">20% of queries were smoothly escalated to human support when needed</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Using a management dashboard, the client trained the chatbot to match their tone and brand</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">In 90 days, it handled 486+ customer chats, cutting manual workload and boosting response speed</span>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Tech Stack:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              Python, Node.js, Angular
-                            </p>
-                          </div>
-                        </div>}
+                    <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-0 border-0">
+                      <div className="bg-gradient-to-br from-background via-background to-background/95 rounded-2xl overflow-hidden">
+                        <DialogHeader className="px-8 pt-8 pb-6 border-b border-border/50">
+                          <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
+                            {study.title}
+                          </DialogTitle>
+                          <DialogDescription className="text-lg text-muted-foreground mt-2">
+                            {study.subtitle}
+                          </DialogDescription>
+                        </DialogHeader>
                         
-                        {study.id === "smart-search" && <div className="space-y-8 py-4">
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Client:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              A German wall art stores integrates smart search and recommendation features into their ecommerce platform, which helps them make 15,000 euros in the last 90 days with an increase of 0.8 products/basket
-                            </p>
-                          </div>
+                        <div className="px-8 py-8">
+                          {study.id === "ai-chatbot" && (
+                            <div className="space-y-10">
+                              {/* The Client */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                                    <Building2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Client</h3>
+                                </div>
+                                <p className="text-lg text-muted-foreground leading-relaxed pl-13">
+                                  A Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over <span className="font-bold text-primary">€14,694</span> in sales.
+                                </p>
+                                <Separator className="mt-6 opacity-30" />
+                              </div>
+                              
+                              {/* The Challenge */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                                    <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
+                                </div>
+                                <ul className="space-y-4 pl-13">
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      <span className="font-semibold text-primary">50–55%</span> of online shopping occurs when support teams are offline—causing delays, confusion, or cart abandonment.
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Employees wasted time answering repetitive customer queries.
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Shoppers had difficulty finding the right products quickly.
+                                    </span>
+                                  </li>
+                                </ul>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* Our Solutions */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                                    <Lightbulb className="w-5 h-5 text-green-600 dark:text-green-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">Our Solutions</h3>
+                                </div>
+                                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/10 dark:to-blue-900/10 rounded-xl p-6 ml-13">
+                                  <p className="text-lg text-muted-foreground leading-relaxed">
+                                    Recognizing the sales loss due to time zone differences, weekends, and language barriers, the client adopted our AI chatbot. The chatbot was embedded into their website to provide instant support around the clock.
+                                  </p>
+                                </div>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* The Results */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                                    <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Results</h3>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-13">
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">30+</div>
+                                    <div className="text-muted-foreground">hours of support time saved by automating routine inquiries</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">80%</div>
+                                    <div className="text-muted-foreground">of questions like "Where's my order?" were resolved without human agents</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">20%</div>
+                                    <div className="text-muted-foreground">of queries were smoothly escalated to human support when needed</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">486+</div>
+                                    <div className="text-muted-foreground">customer chats handled in 90 days, cutting manual workload and boosting response speed</div>
+                                  </div>
+                                </div>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* Tech Stack */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
+                                    <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
+                                </div>
+                                <div className="flex flex-wrap gap-3 pl-13">
+                                  {["Python", "Node.js", "Angular"].map((tech) => (
+                                    <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
+                                      {tech}
+                                    </Badge>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          )}
                           
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Challenge:</h3>
-                            <ul className="space-y-3">
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Struggling to show customers the right related products to boost cross-selling opportunities</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Needed to improve the overall user experience in their webshop with a more intuitive search to help drive sales</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Wanted to increase upselling with more relevant product suggestions instead of low-margin items</span>
-                              </li>
-                            </ul>
-                          </div>
+                          {study.id === "smart-search" && (
+                            <div className="space-y-10">
+                              {/* The Client */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                                    <Building2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Client</h3>
+                                </div>
+                                <p className="text-lg text-muted-foreground leading-relaxed pl-13">
+                                  A German wall art stores integrates smart search and recommendation features into their ecommerce platform, which helps them make <span className="font-bold text-primary">15,000 euros</span> in the last 90 days with an increase of <span className="font-bold text-primary">0.8 products/basket</span>
+                                </p>
+                                <Separator className="mt-6 opacity-30" />
+                              </div>
+                              
+                              {/* The Challenge */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                                    <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
+                                </div>
+                                <ul className="space-y-4 pl-13">
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Struggling to show customers the right related products to boost cross-selling opportunities
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Needed to improve the overall user experience in their webshop with a more intuitive search to help drive sales
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Wanted to increase upselling with more relevant product suggestions instead of low-margin items
+                                    </span>
+                                  </li>
+                                </ul>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* Our Solutions */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                                    <Lightbulb className="w-5 h-5 text-green-600 dark:text-green-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">Our Solutions</h3>
+                                </div>
+                                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/10 dark:to-blue-900/10 rounded-xl p-6 ml-13">
+                                  <p className="text-lg text-muted-foreground leading-relaxed">
+                                    Realizing the challenge and the need to have an advanced functionality that can surpass the standard search bar of their webshop. With smart search engine, they have been able to display precisely what the customer wants and have removed any manual work associated.
+                                  </p>
+                                </div>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* The Results */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                                    <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Results</h3>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-13">
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">12.5%</div>
+                                    <div className="text-muted-foreground">increase in revenue</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">23%</div>
+                                    <div className="text-muted-foreground">increase in basket size</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">14%</div>
+                                    <div className="text-muted-foreground">higher average order value</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">100+</div>
+                                    <div className="text-muted-foreground">most commonly spelled variations handled</div>
+                                  </div>
+                                </div>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* Tech Stack */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
+                                    <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
+                                </div>
+                                <div className="flex flex-wrap gap-3 pl-13">
+                                  {["Python", "Java", "Tailwind CSS"].map((tech) => (
+                                    <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
+                                      {tech}
+                                    </Badge>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          )}
                           
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Our Solutions:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              Realizing the challenge and the need to have an advanced functionality that can surpass the standard search bar of their webshop. With smart search engine, they have been able to display precisely what the customer wants and have removed any manual work associated.
-                            </p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Results:</h3>
-                            <ul className="space-y-3">
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">12.5% increase in revenue</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">23% increase in basket size</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">14% higher average order value</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Top 100 most commonly spelled variations</span>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Tech Stack:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              Python, Java, Tailwind CSS
-                            </p>
-                          </div>
-                        </div>}
-                        
-                        {study.id === "personalization" && <div className="space-y-8 py-4">
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Client:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              A German vaping web shops integrates smart search and recommendation features into their ecommerce platform, which helped them manage their large inventory through continuous and autonomous product recommendation
-                            </p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Challenge:</h3>
-                            <ul className="space-y-3">
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Faced time-consuming, manual management of product listings and recommendations</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Their large inventory made it difficult to deliver personalized shopping experiences</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Data from manual recommendations quickly became outdated</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">Inefficient manually adding recommended product for each new item</span>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Our Solutions:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              Want to say goodbye to manual work and freeing up their time to focus on the more important aspects like business strategy and product development, they decided to integrate automated recommendation engine into their platform
-                            </p>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Results:</h3>
-                            <ul className="space-y-3">
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">108% Increase in Conversion Rate</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">25% Higher Average Order Value which allows customer to explore additional products</span>
-                              </li>
-                              <li className="flex items-start gap-3">
-                                <span className="text-primary font-bold mt-1">•</span>
-                                <span className="text-muted-foreground">39% Increase in Basket Size</span>
-                              </li>
-                            </ul>
-                          </div>
-                          
-                          <div>
-                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Tech Stack:</h3>
-                            <p className="text-muted-foreground leading-relaxed">
-                              Python, Java, Tailwind CSS
-                            </p>
-                          </div>
-                        </div>}
+                          {study.id === "personalization" && (
+                            <div className="space-y-10">
+                              {/* The Client */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
+                                    <Building2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Client</h3>
+                                </div>
+                                <p className="text-lg text-muted-foreground leading-relaxed pl-13">
+                                  A German vaping web shops integrates smart search and recommendation features into their ecommerce platform, which helped them manage their large inventory through continuous and autonomous product recommendation
+                                </p>
+                                <Separator className="mt-6 opacity-30" />
+                              </div>
+                              
+                              {/* The Challenge */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
+                                    <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
+                                </div>
+                                <ul className="space-y-4 pl-13">
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Faced time-consuming, manual management of product listings and recommendations
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Their large inventory made it difficult to deliver personalized shopping experiences
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Data from manual recommendations quickly became outdated
+                                    </span>
+                                  </li>
+                                  <li className="flex items-start gap-4">
+                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
+                                    <span className="text-lg text-muted-foreground leading-relaxed">
+                                      Inefficient manually adding recommended product for each new item
+                                    </span>
+                                  </li>
+                                </ul>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* Our Solutions */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
+                                    <Lightbulb className="w-5 h-5 text-green-600 dark:text-green-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">Our Solutions</h3>
+                                </div>
+                                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/10 dark:to-blue-900/10 rounded-xl p-6 ml-13">
+                                  <p className="text-lg text-muted-foreground leading-relaxed">
+                                    Want to say goodbye to manual work and freeing up their time to focus on the more important aspects like business strategy and product development, they decided to integrate automated recommendation engine into their platform
+                                  </p>
+                                </div>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* The Results */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
+                                    <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">The Results</h3>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-13">
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">108%</div>
+                                    <div className="text-muted-foreground">Increase in Conversion Rate</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">25%</div>
+                                    <div className="text-muted-foreground">Higher Average Order Value which allows customer to explore additional products</div>
+                                  </div>
+                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
+                                    <div className="text-3xl font-bold text-primary mb-2">39%</div>
+                                    <div className="text-muted-foreground">Increase in Basket Size</div>
+                                  </div>
+                                </div>
+                                <Separator className="mt-8 opacity-30" />
+                              </div>
+                              
+                              {/* Tech Stack */}
+                              <div className="group">
+                                <div className="flex items-center gap-3 mb-6">
+                                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
+                                    <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
+                                  </div>
+                                  <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
+                                </div>
+                                <div className="flex flex-wrap gap-3 pl-13">
+                                  {["Python", "Java", "Tailwind CSS"].map((tech) => (
+                                    <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
+                                      {tech}
+                                    </Badge>
+                                  ))}
+                                </div>
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      </div>
                     </DialogContent>
                   </Dialog>
                 </CardContent>
