@@ -345,6 +345,69 @@ const Index = () => {
                             </p>
                           </div>
                         </div>}
+                        
+                        {study.id === "personalization" && <div className="space-y-8 py-4">
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Client:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              A German vaping web shops integrates smart search and recommendation features into their ecommerce platform, which helped them manage their large inventory through continuous and autonomous product recommendation
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Challenge:</h3>
+                            <ul className="space-y-3">
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Faced time-consuming, manual management of product listings and recommendations</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Their large inventory made it difficult to deliver personalized shopping experiences</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Data from manual recommendations quickly became outdated</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">Inefficient manually adding recommended product for each new item</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Our Solutions:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Want to say goodbye to manual work and freeing up their time to focus on the more important aspects like business strategy and product development, they decided to integrate automated recommendation engine into their platform
+                            </p>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">The Results:</h3>
+                            <ul className="space-y-3">
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">108% Increase in Conversion Rate</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">25% Higher Average Order Value which allows customer to explore additional products</span>
+                              </li>
+                              <li className="flex items-start gap-3">
+                                <span className="text-primary font-bold mt-1">•</span>
+                                <span className="text-muted-foreground">39% Increase in Basket Size</span>
+                              </li>
+                            </ul>
+                          </div>
+                          
+                          <div>
+                            <h3 className="text-lg font-bold mb-4 text-cyan-400">Tech Stack:</h3>
+                            <p className="text-muted-foreground leading-relaxed">
+                              Python, Java, Tailwind CSS
+                            </p>
+                          </div>
+                        </div>}
                     </DialogContent>
                   </Dialog>
                 </CardContent>
