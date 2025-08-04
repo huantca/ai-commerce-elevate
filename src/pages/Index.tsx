@@ -840,27 +840,34 @@ const Index = () => {
                     e.preventDefault();
                     setIsSubmitting(true);
                     
-                    const formData = new FormData(e.currentTarget);
-                    
-                    try {
-                      const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
-                        method: "POST",
-                        body: formData,
-                        headers: {
-                          'Accept': 'application/json'
-                        }
-                      });
+                     const formData = new FormData(e.currentTarget);
+                     
+                     // Add FormSubmit configuration
+                     formData.append('_captcha', 'false');
+                     formData.append('_next', window.location.origin);
+                     formData.append('_subject', 'New Platform Audit Request from Website');
+                     
+                     try {
+                       const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
+                         method: "POST",
+                         body: formData,
+                         headers: {
+                           'Accept': 'application/json'
+                         }
+                       });
                       
-                      if (response.ok) {
-                        toast({
-                          title: "Message sent successfully!",
-                          description: "We'll get back to you as soon as possible.",
-                        });
-                        setContactDialogOpen(false);
-                        e.currentTarget.reset();
-                      } else {
-                        throw new Error("Failed to send message");
-                      }
+                       const result = await response.json();
+                       
+                       if (response.ok && result.success !== false) {
+                         toast({
+                           title: "Message sent successfully!",
+                           description: "We'll get back to you as soon as possible.",
+                         });
+                         setContactDialogOpen(false);
+                         e.currentTarget.reset();
+                       } else {
+                         throw new Error(result.message || "Failed to send message");
+                       }
                     } catch (error) {
                       toast({
                         title: "Something went wrong",
@@ -873,10 +880,6 @@ const Index = () => {
                   }}
                   className="space-y-6"
                 >
-                  {/* FormSubmit configuration for AJAX */}
-                  <input type="hidden" name="_captcha" value="false" />
-                  <input type="hidden" name="_next" value="https://98d6d480-503d-4448-ab48-f9822c5f6949.lovableproject.com" />
-                  <input type="hidden" name="_subject" value="New Platform Audit Request from Website" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="firstName" className="text-sm font-medium">
