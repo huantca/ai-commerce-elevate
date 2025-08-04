@@ -846,6 +846,9 @@ const Index = () => {
                       const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
                         method: "POST",
                         body: formData,
+                        headers: {
+                          'Accept': 'application/json'
+                        }
                       });
                       
                       if (response.ok) {
@@ -870,6 +873,10 @@ const Index = () => {
                   }}
                   className="space-y-6"
                 >
+                  {/* FormSubmit configuration for AJAX */}
+                  <input type="hidden" name="_captcha" value="false" />
+                  <input type="hidden" name="_next" value="https://98d6d480-503d-4448-ab48-f9822c5f6949.lovableproject.com" />
+                  <input type="hidden" name="_subject" value="New Platform Audit Request from Website" />
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <Label htmlFor="firstName" className="text-sm font-medium">
