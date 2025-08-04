@@ -3,12 +3,15 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Separator } from "@/components/ui/separator";
-import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2, Facebook, Linkedin } from "lucide-react";
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
+  const [contactDialogOpen, setContactDialogOpen] = useState(false);
 
   // Animation hooks for different sections
   const heroAnimation = useScrollAnimation();
@@ -35,9 +38,13 @@ const Index = () => {
             <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">Resources</a>
             <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
           </nav>
-          <Button className="bg-primary hover:bg-primary/90">
-            Book Free Audit
-          </Button>
+          <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
+            <DialogTrigger asChild>
+              <Button className="bg-primary hover:bg-primary/90">
+                Book Free Audit
+              </Button>
+            </DialogTrigger>
+          </Dialog>
         </div>
       </header>
 
@@ -50,10 +57,14 @@ const Index = () => {
 
         </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              Get Free Platform Audit
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Button>
+            <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
+              <DialogTrigger asChild>
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  Get Free Platform Audit
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </DialogTrigger>
+            </Dialog>
             <Button size="lg" variant="outline">
               View Case Studies
             </Button>
@@ -717,10 +728,14 @@ const Index = () => {
           <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
             Get a free audit of your current platform and discover how AI personalization can boost your sales by 45% or more.
           </p>
-          <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-            Book Your Free Platform Audit
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
+            <DialogTrigger asChild>
+              <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
+                Book Your Free Platform Audit
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Button>
+            </DialogTrigger>
+          </Dialog>
           <p className="text-sm opacity-75 mt-4">
             No commitment required • 30-minute consultation • Instant insights
           </p>
@@ -774,6 +789,137 @@ const Index = () => {
           </div>
         </div>
       </footer>
+
+      {/* Contact Dialog */}
+      <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
+        <DialogContent className="max-w-6xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-0 border-0">
+          <div className="bg-background rounded-2xl overflow-hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[600px]">
+              {/* Left Column */}
+              <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-8 lg:p-12 flex flex-col justify-center">
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
+                      Contact Us
+                    </h2>
+                    <p className="text-lg text-muted-foreground leading-relaxed">
+                      We appreciate your interest in BKPlus Software Ecommerce Platform Audit.<br />
+                      Send us your Ecommerce site, and we'll get back to you as soon as possible!
+                    </p>
+                  </div>
+                  
+                  {/* Social Media Icons */}
+                  <div className="flex gap-4 pt-6">
+                    <a
+                      href="https://www.facebook.com/bkplussoftware"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-105"
+                    >
+                      <Facebook className="w-5 h-5 text-primary" />
+                    </a>
+                    <a
+                      href="https://vn.linkedin.com/company/bkplussoftware"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 bg-primary/10 hover:bg-primary/20 rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-105"
+                    >
+                      <Linkedin className="w-5 h-5 text-primary" />
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Column - Form */}
+              <div className="p-8 lg:p-12">
+                <form
+                  action="https://formsubmit.co/giangnth@bkplussoft.com"
+                  method="POST"
+                  className="space-y-6"
+                >
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="firstName" className="text-sm font-medium">
+                        First Name *
+                      </Label>
+                      <Input
+                        id="firstName"
+                        name="firstName"
+                        type="text"
+                        required
+                        className="h-12"
+                        placeholder="Enter your first name"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="lastName" className="text-sm font-medium">
+                        Last Name *
+                      </Label>
+                      <Input
+                        id="lastName"
+                        name="lastName"
+                        type="text"
+                        required
+                        className="h-12"
+                        placeholder="Enter your last name"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="email" className="text-sm font-medium">
+                      Business Email *
+                    </Label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      required
+                      className="h-12"
+                      placeholder="Enter your business email"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="company" className="text-sm font-medium">
+                      Company Name *
+                    </Label>
+                    <Input
+                      id="company"
+                      name="company"
+                      type="text"
+                      required
+                      className="h-12"
+                      placeholder="Enter your company name"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="website" className="text-sm font-medium">
+                      Website URL *
+                    </Label>
+                    <Input
+                      id="website"
+                      name="website"
+                      type="url"
+                      required
+                      className="h-12"
+                      placeholder="https://your-website.com"
+                    />
+                  </div>
+
+                  <Button
+                    type="submit"
+                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-lg"
+                  >
+                    Contact Us
+                  </Button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>;
 };
 export default Index;
