@@ -9,9 +9,12 @@ import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { useToast } from "@/hooks/use-toast";
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { toast } = useToast();
 
   // Animation hooks for different sections
   const heroAnimation = useScrollAnimation();
@@ -833,8 +836,38 @@ const Index = () => {
               {/* Right Column - Form */}
               <div className="p-8 lg:p-12">
                 <form
-                  action="https://formsubmit.co/giangnth@bkplussoft.com"
-                  method="POST"
+                  onSubmit={async (e) => {
+                    e.preventDefault();
+                    setIsSubmitting(true);
+                    
+                    const formData = new FormData(e.currentTarget);
+                    
+                    try {
+                      const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
+                        method: "POST",
+                        body: formData,
+                      });
+                      
+                      if (response.ok) {
+                        toast({
+                          title: "Message sent successfully!",
+                          description: "We'll get back to you as soon as possible.",
+                        });
+                        setContactDialogOpen(false);
+                        e.currentTarget.reset();
+                      } else {
+                        throw new Error("Failed to send message");
+                      }
+                    } catch (error) {
+                      toast({
+                        title: "Something went wrong",
+                        description: "Please try again later.",
+                        variant: "destructive",
+                      });
+                    } finally {
+                      setIsSubmitting(false);
+                    }
+                  }}
                   className="space-y-6"
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -896,13 +929,12 @@ const Index = () => {
 
                   <div className="space-y-2">
                     <Label htmlFor="website" className="text-sm font-medium">
-                      Website URL *
+                      Website URL
                     </Label>
                     <Input
                       id="website"
                       name="website"
                       type="url"
-                      required
                       className="h-12"
                       placeholder="https://your-website.com"
                     />
@@ -910,9 +942,10 @@ const Index = () => {
 
                   <Button
                     type="submit"
-                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-lg"
+                    disabled={isSubmitting}
+                    className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-lg disabled:opacity-50"
                   >
-                    Contact Us
+                    {isSubmitting ? "Sending..." : "Contact Us"}
                   </Button>
                 </form>
               </div>
