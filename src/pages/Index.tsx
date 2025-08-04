@@ -223,8 +223,7 @@ const Index = () => {
                         </DialogHeader>
                         
                         <div className="px-8 py-8">
-                          {study.id === "ai-chatbot" && (
-                            <div className="space-y-10">
+                          {study.id === "ai-chatbot" && <div className="space-y-10">
                               {/* The Client */}
                               <div className="group">
                                 <div className="flex items-center gap-3 mb-6">
@@ -324,18 +323,14 @@ const Index = () => {
                                   <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-3 pl-13">
-                                  {["Python", "Node.js", "Angular"].map((tech) => (
-                                    <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
+                                  {["Python", "Node.js", "Angular"].map(tech => <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
                                       {tech}
-                                    </Badge>
-                                  ))}
+                                    </Badge>)}
                                 </div>
                               </div>
-                            </div>
-                          )}
+                            </div>}
                           
-                          {study.id === "smart-search" && (
-                            <div className="space-y-10">
+                          {study.id === "smart-search" && <div className="space-y-10">
                               {/* The Client */}
                               <div className="group">
                                 <div className="flex items-center gap-3 mb-6">
@@ -435,18 +430,14 @@ const Index = () => {
                                   <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-3 pl-13">
-                                  {["Python", "Java", "Tailwind CSS"].map((tech) => (
-                                    <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
+                                  {["Python", "Java", "Tailwind CSS"].map(tech => <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
                                       {tech}
-                                    </Badge>
-                                  ))}
+                                    </Badge>)}
                                 </div>
                               </div>
-                            </div>
-                          )}
+                            </div>}
                           
-                          {study.id === "personalization" && (
-                            <div className="space-y-10">
+                          {study.id === "personalization" && <div className="space-y-10">
                               {/* The Client */}
                               <div className="group">
                                 <div className="flex items-center gap-3 mb-6">
@@ -548,15 +539,12 @@ const Index = () => {
                                   <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
                                 </div>
                                 <div className="flex flex-wrap gap-3 pl-13">
-                                  {["Python", "Java", "Tailwind CSS"].map((tech) => (
-                                    <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
+                                  {["Python", "Java", "Tailwind CSS"].map(tech => <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
                                       {tech}
-                                    </Badge>
-                                  ))}
+                                    </Badge>)}
                                 </div>
                               </div>
-                            </div>
-                          )}
+                            </div>}
                         </div>
                       </div>
                     </DialogContent>
@@ -573,9 +561,7 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Process</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              A clear process — from ideation and design to deployment and support — ensures every product meets the highest standards.
-            </p>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Quality Isn’t a Choice But Built Into Everything We Do</p>
           </div>
 
           <div className="relative max-w-6xl mx-auto">
@@ -612,24 +598,24 @@ const Index = () => {
                 <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                   <Search className="w-6 h-6 text-blue-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Nghiên cứu</h3>
-                <p className="text-muted-foreground text-sm">Xác định tính năng cốt lõi, nhu cầu người dùng và yêu cầu kỹ thuật.</p>
+                <h3 className="text-lg font-semibold mb-2">Discovery </h3>
+                <p className="text-muted-foreground text-sm">Understand the clients' businesses demands. Do a comprehensive research</p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-2">
                 <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
                   <PenTool className="w-6 h-6 text-purple-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Thiết kế</h3>
-                <p className="text-muted-foreground text-sm">Chọn công nghệ/khung, tạo wireframe, prototype và UI.</p>
+                <h3 className="text-lg font-semibold mb-2">Planning & Design</h3>
+                <p className="text-muted-foreground text-sm">Create a detailed plan to outline project's milestones, timelines, deliverables and a Work Breakdown Structure </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-3">
                 <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                   <Code className="w-6 h-6 text-green-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Phát triển</h3>
-                <p className="text-muted-foreground text-sm">Áp dụng test‑driven/CI để đảm bảo chất lượng và tiến độ.</p>
+                <h3 className="text-lg font-semibold mb-2">Development </h3>
+                <p className="text-muted-foreground text-sm">Utilize various programming languages and automation tools to build an AI-powered, responsive platform with optimized search, fast load times, and reduced manual work.</p>
               </div>
 
               {/* Row 2 */}
@@ -637,24 +623,24 @@ const Index = () => {
                 <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
                   <Settings className="w-6 h-6 text-orange-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Kiểm thử</h3>
-                <p className="text-muted-foreground text-sm">Kiểm thử nghiêm ngặt để phát hiện và sửa mọi lỗi.</p>
+                <h3 className="text-lg font-semibold mb-2">Testing </h3>
+                <p className="text-muted-foreground text-sm">Testing the website the website's compatibility, security and performance to ensure that it meets the requirement standards and free from bug & errors </p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-5">
                 <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
                   <Rocket className="w-6 h-6 text-red-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Triển khai</h3>
-                <p className="text-muted-foreground text-sm">Đưa sản phẩm lên môi trường thực tế/store và cấu hình vận hành.</p>
+                <h3 className="text-lg font-semibold mb-2">Deploy & Deliver</h3>
+                <p className="text-muted-foreground text-sm">Deploy the features or website to the client's server, ensuring stable performance and full accessibility.</p>
               </div>
 
               <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-6">
                 <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
                   <Shield className="w-6 h-6 text-teal-600" />
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Bảo hành & Bảo trì</h3>
-                <p className="text-muted-foreground text-sm">Giám sát hiệu năng, cập nhật, xử lý sự cố nhanh chóng.</p>
+                <h3 className="text-lg font-semibold mb-2">Maintenance </h3>
+                <p className="text-muted-foreground text-sm">Provide ongoing maintenance and support to monitor system health, resolve issues promptly, and implement necessary updates.</p>
               </div>
             </div>
           </div>
