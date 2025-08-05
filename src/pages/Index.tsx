@@ -5,7 +5,7 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2, Facebook, Linkedin } from "lucide-react";
+import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2, Facebook, Linkedin, BookOpen, Library } from "lucide-react";
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
@@ -673,48 +673,37 @@ const Index = () => {
             </p>
           </div>
 
-          <div ref={resourcesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-3 gap-8 scroll-animate ${resourcesAnimation.isVisible ? 'visible' : ''}`}>
+          <div ref={resourcesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto scroll-animate ${resourcesAnimation.isVisible ? 'visible' : ''}`}>
             <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300">
               <CardHeader>
-                <BarChart3 className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>eCommerce AI Guide</CardTitle>
+                <BookOpen className="w-8 h-8 text-primary mb-2" />
+                <CardTitle>Downloadable E-book</CardTitle>
                 <CardDescription>
-                  Complete guide to implementing AI in your store
+                  Download free e-book on how to future-proof your site and turn trends into profit
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <Button variant="outline" className="w-full">
-                  Download eBook
+                  Download Now
                 </Button>
               </CardContent>
             </Card>
 
             <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-1">
               <CardHeader>
-                <Users className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Personalization Webinar</CardTitle>
+                <Library className="w-8 h-8 text-primary mb-2" />
+                <CardTitle>Knowledge Center</CardTitle>
                 <CardDescription>
-                  Live session: Boosting sales with AI recommendations
+                  Read articles on customer stories, ecommerce trends, and best practices
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="outline" className="w-full">
-                  Register Now
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-2">
-              <CardHeader>
-                <MessageSquare className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>FAQ Center</CardTitle>
-                <CardDescription>
-                  Common questions about AI implementation
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button variant="outline" className="w-full">
-                  Browse FAQs
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => window.open('https://bkplussoft.com/blog/', '_blank')}
+                >
+                  Click Now
                 </Button>
               </CardContent>
             </Card>
