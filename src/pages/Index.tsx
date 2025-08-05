@@ -840,7 +840,8 @@ const Index = () => {
                     e.preventDefault();
                     setIsSubmitting(true);
                     
-                    const formData = new FormData(e.currentTarget);
+                    const form = e.currentTarget;
+                    const formData = new FormData(form);
                      
                      // Add FormSubmit configuration
                      formData.append('_captcha', 'false');
@@ -860,7 +861,7 @@ const Index = () => {
                          description: "We'll get back to you as soon as possible.",
                        });
                        setContactDialogOpen(false);
-                       e.currentTarget.reset();
+                       form?.reset();
                      } catch (error) {
                        console.error("Form submission error:", error);
                        toast({
