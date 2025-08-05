@@ -861,11 +861,12 @@ const Index = () => {
                        });
                        setContactDialogOpen(false);
                        e.currentTarget.reset();
-                    } catch (error) {
-                      toast({
-                        title: "Something went wrong",
-                        description: "Please try again later.",
-                        variant: "destructive",
+                     } catch (error) {
+                       console.error("Form submission error:", error);
+                       toast({
+                         title: "Failed to send message",
+                         description: error instanceof Error ? error.message : "Please try again later.",
+                         variant: "destructive",
                       });
                     } finally {
                       setIsSubmitting(false);
