@@ -840,7 +840,7 @@ const Index = () => {
                     e.preventDefault();
                     setIsSubmitting(true);
                     
-                     const formData = new FormData(e.currentTarget);
+                    const formData = new FormData(e.currentTarget);
                      
                      // Add FormSubmit configuration
                      formData.append('_captcha', 'false');
@@ -856,9 +856,14 @@ const Index = () => {
                          }
                        });
                       
-                       const result = await response.json();
-                       
-                       if (response.ok && result.success !== false) {
+                       if (response.ok) {
+                         // Check if response has JSON content-type before parsing
+                         const contentType = response.headers.get("content-type");
+                         if (contentType && contentType.includes("application/json")) {
+                           const result = await response.json();
+                           // Handle JSON response if needed
+                         }
+                         
                          toast({
                            title: "Message sent successfully!",
                            description: "We'll get back to you as soon as possible.",
@@ -866,7 +871,7 @@ const Index = () => {
                          setContactDialogOpen(false);
                          e.currentTarget.reset();
                        } else {
-                         throw new Error(result.message || "Failed to send message");
+                         throw new Error("Failed to send message");
                        }
                     } catch (error) {
                       toast({
