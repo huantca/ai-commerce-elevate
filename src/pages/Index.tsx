@@ -851,9 +851,6 @@ const Index = () => {
                      try {
                        const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
                          method: "POST",
-                         headers: {
-                           'Accept': 'application/json'
-                         },
                          body: formData
                        });
                        
