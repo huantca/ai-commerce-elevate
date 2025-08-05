@@ -851,17 +851,22 @@ const Index = () => {
                      try {
                        const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
                          method: "POST",
+                         headers: {
+                           'Accept': 'application/json'
+                         },
                          body: formData
                        });
-                      
-                       // FormSubmit always sends a successful response, even with redirects
-                       // Just check if the request went through without network errors
-                       toast({
-                         title: "Message sent successfully!",
-                         description: "We'll get back to you as soon as possible.",
-                       });
-                       setContactDialogOpen(false);
-                       form?.reset();
+                       
+                       if (response.ok) {
+                         toast({
+                           title: "Message sent successfully!",
+                           description: "We'll get back to you as soon as possible.",
+                         });
+                         setContactDialogOpen(false);
+                         form?.reset();
+                       } else {
+                         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                       }
                      } catch (error) {
                        console.error("Form submission error:", error);
                        toast({
