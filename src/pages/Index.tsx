@@ -9,10 +9,12 @@ import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star
 import { useState } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import { EbookDialog } from "@/components/EbookDialog";
 import { useToast } from "@/hooks/use-toast";
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
+  const [ebookDialogOpen, setEbookDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
@@ -683,7 +685,11 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button variant="outline" className="w-full">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => setEbookDialogOpen(true)}
+                >
                   Download Now
                 </Button>
               </CardContent>
@@ -949,6 +955,13 @@ const Index = () => {
           </div>
         </DialogContent>
       </Dialog>
-    </div>;
+
+      {/* E-book Dialog */}
+      <EbookDialog 
+        open={ebookDialogOpen} 
+        onOpenChange={setEbookDialogOpen} 
+      />
+    </div>
+  );
 };
 export default Index;
