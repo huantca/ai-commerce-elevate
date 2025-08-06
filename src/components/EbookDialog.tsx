@@ -32,7 +32,7 @@ const EBOOK_DATA = {
   title: "Top E-Commerce Trends for 2026",
   subtitle: "Gain a competitive edge with actionable insights and future-ready e-commerce strategies.",
   downloadUrl: "https://drive.google.com/file/d/14EYmPQtdkyfF47m587OPPFa8qV-J7rvT/view?usp=drive_link",
-  coverImage: "/lovable-uploads/a031652f-4904-456e-8696-37f75d157932.png"
+  coverImage: "/lovable-uploads/e6114138-fe23-46a5-8cb7-8ba510c0ee8e.png"
 };
 
 export const EbookDialog: React.FC<EbookDialogProps> = ({ open, onOpenChange }) => {
@@ -101,33 +101,34 @@ export const EbookDialog: React.FC<EbookDialogProps> = ({ open, onOpenChange }) 
               </DialogTitle>
             </DialogHeader>
             
-            <div className="grid grid-cols-1 md:grid-cols-1 gap-6 mt-6">
-              <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 border-2 hover:border-primary/20">
-                <div className="aspect-video relative overflow-hidden">
-                  <img
-                    src={EBOOK_DATA.coverImage}
-                    alt={EBOOK_DATA.title}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <CardHeader>
-                  <CardTitle className="text-xl font-bold text-primary">
+            <div className="flex flex-col lg:flex-row gap-6 mt-6">
+              <div className="flex-shrink-0">
+                <img
+                  src={EBOOK_DATA.coverImage}
+                  alt={EBOOK_DATA.title}
+                  className="w-60 h-60 object-cover rounded-lg shadow-md"
+                  style={{ width: '240px', height: '240px' }}
+                />
+              </div>
+              
+              <div className="flex-1 min-w-0 space-y-4">
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-primary">
                     {EBOOK_DATA.title}
-                  </CardTitle>
+                  </h3>
                   <p className="text-muted-foreground text-sm">
                     {EBOOK_DATA.subtitle}
                   </p>
-                </CardHeader>
-                <CardContent>
-                  <Button
-                    onClick={() => handleReadMore(EBOOK_DATA)}
-                    className="w-full"
-                    variant="outline"
-                  >
-                    Read more <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </CardContent>
-              </Card>
+                </div>
+                
+                <Button
+                  onClick={() => handleReadMore(EBOOK_DATA)}
+                  className="w-full sm:w-auto"
+                  variant="outline"
+                >
+                  Read more <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
           </>
         ) : (
