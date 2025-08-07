@@ -32,7 +32,7 @@ const EBOOK_DATA = {
   title: "Top E-Commerce Trends for 2026",
   subtitle: "Gain a competitive edge with actionable insights and future-ready e-commerce strategies.",
   downloadUrl: "https://drive.google.com/file/d/14EYmPQtdkyfF47m587OPPFa8qV-J7rvT/view?usp=drive_link",
-  coverImage: "/lovable-uploads/e6114138-fe23-46a5-8cb7-8ba510c0ee8e.png"
+  coverImage: "/lovable-uploads/910693a4-6717-4079-8553-7b2679b3a9a2.png"
 };
 
 export const EbookDialog: React.FC<EbookDialogProps> = ({ open, onOpenChange }) => {
