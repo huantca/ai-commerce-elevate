@@ -63,22 +63,46 @@ export const EbookDialog: React.FC<EbookDialogProps> = ({ open, onOpenChange }) 
     setSelectedEbook(null);
   };
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = async (data: FormData) => {
     if (!selectedEbook) return;
 
-    toast({
-      title: "Download Started",
-      description: "Your e-book download will begin shortly.",
-    });
+    try {
+      // Send email via FormSubmit
+      const formData = new FormData();
+      formData.append('_subject', 'download ebook');
+      formData.append('_next', 'https://formsubmit.co/thanks');
+      formData.append('_captcha', 'false');
+      formData.append('Full Name', data.fullName);
+      formData.append('Company Email', data.email);
+      formData.append('Phone Number', data.phone);
+      formData.append('Company Name', data.company);
+      formData.append('Website URL', data.website || 'Not provided');
 
-    // Open the download link
-    window.open(selectedEbook.downloadUrl, "_blank");
+      await fetch('https://formsubmit.co/giangnth@bkplussoft.com', {
+        method: 'POST',
+        body: formData,
+      });
 
-    // Reset form and close dialog
-    reset();
-    setStep("selection");
-    setSelectedEbook(null);
-    onOpenChange(false);
+      toast({
+        title: "Download Started",
+        description: "Your e-book download will begin shortly.",
+      });
+
+      // Open the download link
+      window.open(selectedEbook.downloadUrl, "_blank");
+
+      // Reset form and close dialog
+      reset();
+      setStep("selection");
+      setSelectedEbook(null);
+      onOpenChange(false);
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to process your request. Please try again.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleDialogOpenChange = (open: boolean) => {
