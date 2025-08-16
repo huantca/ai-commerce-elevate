@@ -55,13 +55,24 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div ref={heroAnimation.ref} className={`container mx-auto text-center max-w-4xl scroll-animate ${heroAnimation.isVisible ? 'visible' : ''}`}>
+      <section className="relative py-20 px-4 bg-cover bg-center min-h-[80vh] flex items-center" style={{ backgroundImage: 'url(/lovable-uploads/bg_hero_section.png)' }}>
+        <div className="absolute inset-0"></div>
+        {/* AI Image in bottom left corner */}
+        <div className="absolute left-20 bottom-20 w-[271px] h-[271px] opacity-90 hover:opacity-100 transition-opacity ">
+          <img 
+            src="/lovable-uploads/img_ai.png" 
+            alt="AI Technology" 
+            className="w-full h-full object-contain"
+          />
+        </div>
+        <div ref={heroAnimation.ref} className={`container mx-auto text-center max-w-4xl scroll-animate relative z-10 ${heroAnimation.isVisible ? 'visible' : ''}`}>
           <Badge variant="secondary" className="mb-6">Trusted by 20+ eCommerce Leaders & CX Managers</Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">Boost Your eCommerce with AI Personalization</h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">Grow your business 24/7 with AI. Our AI Sales Assistants works while you sleep, boosts conversions with Smart Search, and drives upsells with Smart Recommendations
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">Donnez vie à vos idées Produit & IA</h1>
+          <p className="text-lg text-muted-foreground mb-3 max-w-4xl mx-auto px-4">Votre partenaire offshore pour une équipe IA intégrée, agile et économiquement optimisée</p>
+          <p className="text-lg mb-7 --muted">
+            <span className="font-bold">+33 6 50 83 70 77 </span>ou 
+            <span className="font-bold"> contact@bkplussoft.com </span> — du lundi au vendredi</p>
 
-        </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
               <DialogTrigger asChild>
@@ -71,28 +82,50 @@ const Index = () => {
                 </Button>
               </DialogTrigger>
             </Dialog>
-            <Button size="lg" variant="outline">
-              View Case Studies
-            </Button>
           </div>
           
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16">
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">40.3%</div>
-              <div className="text-sm text-muted-foreground">Increase in order value </div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">45%</div>
-              <div className="text-sm text-muted-foreground">Avg. Sales Increase</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">85%</div>
-              <div className="text-sm text-muted-foreground">Client Satisfaction</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl font-bold text-primary">10.2x</div>
-              <div className="text-sm text-muted-foreground">More likely to convert </div>
+          {/* Trusted By */}
+          <div className="mt-12">
+            <div className="flex flex-wrap justify-center items-center gap-4">
+              <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <img 
+                  src="/lovable-uploads/logo_google.svg" 
+                  alt="Google" 
+                  className="h-7 w-auto hover:opacity-100 transition-opacity"
+                />
+                <div className="flex items-center gap-1.5 mt-3">
+                  <span className="text-sm text-muted-foreground">4.5</span>
+                  {[...Array(4)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-[#FFB400] fill-[#FFB400]" />
+                  ))}
+                  <div className="relative w-4 h-4">
+                    <Star className="w-4 h-4 text-gray-300" />
+                    <div className="absolute inset-y-0 left-0 w-1/2 overflow-hidden">
+                      <Star className="w-4 h-4 text-[#FFB400] fill-[#FFB400]" />
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
+              <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
+                <img 
+                  src="/lovable-uploads/logo_clutch.svg" 
+                  alt="Clutch" 
+                  className="h-7 w-auto hover:opacity-100 transition-opacity"
+                />
+                <div className="flex items-center gap-1.5 mt-3">
+                  <span className="text-sm text-muted-foreground">4.5</span>
+                  {[...Array(4)].map((_, i) => (
+                    <Star key={i} className="w-4 h-4 text-[#FFB400] fill-[#FFB400]" />
+                  ))}
+                  <div className="relative w-4 h-4">
+                    <Star className="w-4 h-4 text-gray-300" />
+                    <div className="absolute inset-y-0 left-0 w-1/2 overflow-hidden">
+                      <Star className="w-4 h-4 text-[#FFB400] fill-[#FFB400]" />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
