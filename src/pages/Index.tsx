@@ -32,22 +32,21 @@ const Index = () => {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="flex items-center gap-3">
             <img src="/lovable-uploads/80b908cd-8cc7-4d1b-9b38-800cd7593430.png" alt="BkPlus Logo" className="h-12 w-auto" />
-            <div className="flex flex-col px-3 py-1 rounded-lg bg-gradient-to-r from-brand-teal/10 to-brand-blue/10 backdrop-blur-sm">
-              <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BKPLUS</span>
-              <span className="text-muted-foreground leading-tight text-sm font-medium">SOFTWARE</span>
+            <div className="flex flex-col py-1 rounded-lg ">
+              <span className="text-xl font-bold ">BKPLUS</span>
+              <span className="text-sm font-medium">SOFTWARE</span>
             </div>
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
-            <a href="#case-studies" className="text-muted-foreground hover:text-foreground transition-colors">Case Studies</a>
-            <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Process</a>
-            <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">Resources</a>
-            <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors">Contact</a>
+            <a href="#case-studies" className="text-muted-foreground hover:text-foreground transition-colors">Études de cas</a>
+            <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Nos Expertises</a>
+            <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">Avis client</a>
           </nav>
           <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
             <DialogTrigger asChild>
               <Button className="bg-primary hover:bg-primary/90">
-                Book Free Audit
+                Prendre rendez-vous
               </Button>
             </DialogTrigger>
           </Dialog>
@@ -66,10 +65,10 @@ const Index = () => {
           />
         </div>
         <div ref={heroAnimation.ref} className={`container mx-auto text-center max-w-4xl scroll-animate relative z-10 ${heroAnimation.isVisible ? 'visible' : ''}`}>
-          <Badge variant="secondary" className="mb-6">Trusted by 20+ eCommerce Leaders & CX Managers</Badge>
+          <Badge variant="secondary" className="mb-6">Plus de 20 leaders du commerce électronique et gestionnaires d'expérience client nous font confiance</Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">Donnez vie à vos idées Produit & IA</h1>
-          <p className="text-lg text-muted-foreground mb-3 max-w-4xl mx-auto px-4">Votre partenaire offshore pour une équipe IA intégrée, agile et économiquement optimisée</p>
-          <p className="text-lg mb-7 --muted">
+          <p className="text-lg text-muted-foreground mb-6 max-w-4xl mx-auto px-4">Votre partenaire offshore pour une équipe IA intégrée, agile et économiquement optimisée</p>
+          <p className="text-lg mb-4 --muted">
             <span className="font-bold">+33 6 50 83 70 77 </span>ou 
             <span className="font-bold"> contact@bkplussoft.com </span> — du lundi au vendredi</p>
 
@@ -77,7 +76,7 @@ const Index = () => {
             <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
               <DialogTrigger asChild>
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
-                  Get Free Platform Audit
+                  Travaillons ensemble
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Button>
               </DialogTrigger>
