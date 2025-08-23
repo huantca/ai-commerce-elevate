@@ -11,11 +11,14 @@ import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { EbookDialog } from "@/components/EbookDialog";
 import { useToast } from "@/hooks/use-toast";
+import { ProjectDetails } from "@/components/ProjectDetails";
+
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
   const [contactDialogOpen, setContactDialogOpen] = useState(false);
   const [ebookDialogOpen, setEbookDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showProjectDetails, setShowProjectDetails] = useState(false);
   const { toast } = useToast();
 
   // Animation hooks for different sections
@@ -38,10 +41,10 @@ const Index = () => {
             </div>
           </div>
           <nav className="hidden md:flex space-x-8">
-            <a href="#services" className="text-muted-foreground hover:text-foreground transition-colors">Services</a>
-            <a href="#case-studies" className="text-muted-foreground hover:text-foreground transition-colors">Études de cas</a>
-            <a href="#process" className="text-muted-foreground hover:text-foreground transition-colors">Nos Expertises</a>
-            <a href="#resources" className="text-muted-foreground hover:text-foreground transition-colors">Avis client</a>
+            <a href="#welcome" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Accueil</a>
+            <a href="#case-studies" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Études de cas</a>
+            <a href="#process" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Nos Expertises</a>
+            <a href="#resources" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
           </nav>
           <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
             <DialogTrigger asChild>
@@ -65,14 +68,13 @@ const Index = () => {
           />
         </div>
         <div ref={heroAnimation.ref} className={`container mx-auto text-center max-w-4xl scroll-animate relative z-10 ${heroAnimation.isVisible ? 'visible' : ''}`}>
-          <Badge variant="secondary" className="mb-6">Plus de 20 leaders du commerce électronique et gestionnaires d'expérience client nous font confiance</Badge>
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">Donnez vie à vos idées Produit & IA</h1>
           <p className="text-lg text-muted-foreground mb-6 max-w-4xl mx-auto px-4">Votre partenaire offshore pour une équipe IA intégrée, agile et économiquement optimisée</p>
-          <p className="text-lg mb-4 --muted">
+          <p className="text-lg mb-4 --muted" style={{ color: '#084298' }}>
             <span className="font-bold">+33 6 50 83 70 77 </span>ou 
             <span className="font-bold"> contact@bkplussoft.com </span> — du lundi au vendredi</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-16">
             <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
               <DialogTrigger asChild>
                 <Button size="lg" className="bg-primary hover:bg-primary/90">
@@ -113,16 +115,10 @@ const Index = () => {
                   className="h-7 w-auto hover:opacity-100 transition-opacity"
                 />
                 <div className="flex items-center gap-1.5 mt-3">
-                  <span className="text-sm text-muted-foreground">4.5</span>
-                  {[...Array(4)].map((_, i) => (
+                  <span className="text-sm text-muted-foreground">5.0</span>
+                  {[...Array(5)].map((_, i) => (
                     <Star key={i} className="w-4 h-4 text-[#FFB400] fill-[#FFB400]" />
                   ))}
-                  <div className="relative w-4 h-4">
-                    <Star className="w-4 h-4 text-gray-300" />
-                    <div className="absolute inset-y-0 left-0 w-1/2 overflow-hidden">
-                      <Star className="w-4 h-4 text-[#FFB400] fill-[#FFB400]" />
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -130,101 +126,51 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Services Section */}
-      <section id="services" className="py-20 px-4 bg-muted/50">
+      {/* Welcome Section */}
+      <section id="welcome" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Complete AI Personalization Solutions </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Maximize Every Visit: AI That Knows Your Customers' Shopping Habit Better Than You Do</p>
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left Column - Content */}
+            <div className="md:w-1/2 space-y-6">
+              <div className="inline-flex items-center text-primary text-sm font-medium whitespace-pre">
+                RegTech    |    FinTech    |    B2B
+              </div>
+              <div className="flex items-center gap-4">
+                <img 
+                  src="/lovable-uploads/img_logo_finance.png" 
+                  alt="B4FINANCE Logo" 
+                  className="h-12 w-auto self-center"
+                />
+                <h2 className="text-5xl md:text-6xl font-bold text-primary">B4FINANCE</h2>
+              </div>
+              <p className="text-base text-primary/90" style={{ color: '#052C65' }}>
+                B4finance est une plateforme SaaS qui exploite l'IA pour automatiser le processus KYC/AML et simplifier les souscriptions aux fonds en éliminant les tâches manuelles et en facilitant la signature des sous-documents. Cela permet aux General Partners de se concentrer sur la relation investisseurs, d'optimiser les opérations et de garantir une conformité réglementaire totale.
+              </p>
+              <Button 
+                className="bg-primary hover:bg-primary/90 text-white"
+                onClick={() => setShowProjectDetails(!showProjectDetails)}
+              >
+                Voir le projet
+                <ArrowRight className={`ml-2 w-4 h-4 transition-transform ${showProjectDetails ? 'rotate-90' : ''}`} />
+              </Button>
+            </div>
+            
+            {/* Right Column - Image */}
+            <div className="md:w-1/2 relative">
+              <div className="relative overflow-visible">
+                <img 
+                  src="/lovable-uploads/img_laptop.png" 
+                  alt="B4FINANCE Platform" 
+                  className="ml-auto max-w-full h-auto object-cover object-left"
+                  style={{ maxWidth: '120%', marginRight: '-13%' }}
+                />
+              </div>
+            </div>
           </div>
-
-          <div ref={servicesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-3 gap-8 scroll-animate ${servicesAnimation.isVisible ? 'visible' : ''}`}>
-            {/* Smart Search Engine */}
-            <Card className="glow-hover card-hover border-2 hover:border-primary/50 transition-all duration-300">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Search className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle>Smart Search Engine</CardTitle>
-                <CardDescription>
-                  Intelligent search that understands your customers
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Synonym recognition</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Autocomplete & suggestions</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Typo correction</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* AI-Powered Chatbot */}
-            <Card className="glow-hover card-hover border-2 hover:border-primary/50 transition-all duration-300 delay-1">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <MessageSquare className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle>AI-Powered Chatbot</CardTitle>
-                <CardDescription>
-                  24/7 customer support and product discovery
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Product discovery</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Personalized recommendations</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Customer support & order tracking</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
-
-            {/* Smart Recommendations */}
-            <Card className="glow-hover card-hover border-2 hover:border-primary/50 transition-all duration-300 delay-2">
-              <CardHeader>
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <Target className="w-6 h-6 text-primary" />
-                </div>
-                <CardTitle>Smart Recommendations</CardTitle>
-                <CardDescription>
-                  Personalized product suggestions that convert
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-3">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Similar items & 1:1 personalization</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Recently viewed items</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle className="w-4 h-4 text-primary" />
-                    <span className="text-sm">Frequently bought together</span>
-                  </li>
-                </ul>
-              </CardContent>
-            </Card>
+          
+          {/* Project Details Section - Moved here to appear below the welcome section */}
+          <div className="mt-16">
+            <ProjectDetails isOpen={showProjectDetails} />
           </div>
         </div>
       </section>
