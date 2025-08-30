@@ -12,6 +12,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { EbookDialog } from "@/components/EbookDialog";
 import { useToast } from "@/hooks/use-toast";
 import { ProjectDetails } from "@/components/ProjectDetails";
+import ProjectDetailsAttronAI from "@/components/ProjectDetailsAttronAI";
 
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
@@ -19,6 +20,7 @@ const Index = () => {
   const [ebookDialogOpen, setEbookDialogOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showProjectDetails, setShowProjectDetails] = useState(false);
+  const [showProjectDetailsAttron, setShowProjectDetailsAttron] = useState(false);
   const { toast } = useToast();
 
   // Animation hooks for different sections
@@ -61,9 +63,9 @@ const Index = () => {
         <div className="absolute inset-0"></div>
         {/* AI Image in bottom left corner */}
         <div className="absolute left-20 bottom-20 w-[271px] h-[271px] opacity-90 hover:opacity-100 transition-opacity ">
-          <img 
-            src="/lovable-uploads/img_ai.png" 
-            alt="AI Technology" 
+          <img
+            src="/lovable-uploads/img_ai.png"
+            alt="AI Technology"
             className="w-full h-full object-contain"
           />
         </div>
@@ -71,7 +73,7 @@ const Index = () => {
           <h1 className="text-4xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">Donnez vie à vos idées Produit & IA</h1>
           <p className="text-lg text-muted-foreground mb-6 max-w-4xl mx-auto px-4">Votre partenaire offshore pour une équipe IA intégrée, agile et économiquement optimisée</p>
           <p className="text-lg mb-4 --muted" style={{ color: '#084298' }}>
-            <span className="font-bold">+33 6 50 83 70 77 </span>ou 
+            <span className="font-bold">+33 6 50 83 70 77 </span>ou
             <span className="font-bold"> contact@bkplussoft.com </span> — du lundi au vendredi</p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mt-16">
@@ -84,14 +86,14 @@ const Index = () => {
               </DialogTrigger>
             </Dialog>
           </div>
-          
+
           {/* Trusted By */}
           <div className="mt-12">
             <div className="flex flex-wrap justify-center items-center gap-4">
               <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                <img 
-                  src="/lovable-uploads/logo_google.svg" 
-                  alt="Google" 
+                <img
+                  src="/lovable-uploads/logo_google.svg"
+                  alt="Google"
                   className="h-7 w-auto hover:opacity-100 transition-opacity"
                 />
                 <div className="flex items-center gap-1.5 mt-3">
@@ -106,12 +108,12 @@ const Index = () => {
                     </div>
                   </div>
                 </div>
-                
+
               </div>
               <div className="flex flex-col items-center bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                <img 
-                  src="/lovable-uploads/logo_clutch.svg" 
-                  alt="Clutch" 
+                <img
+                  src="/lovable-uploads/logo_clutch.svg"
+                  alt="Clutch"
                   className="h-7 w-auto hover:opacity-100 transition-opacity"
                 />
                 <div className="flex items-center gap-1.5 mt-3">
@@ -126,7 +128,7 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Welcome Section */}
+      {/* Case Studies Section1 */}
       <section id="welcome" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12">
@@ -136,9 +138,9 @@ const Index = () => {
                 RegTech    |    FinTech    |    B2B
               </div>
               <div className="flex items-center gap-4">
-                <img 
-                  src="/lovable-uploads/img_logo_finance.png" 
-                  alt="B4FINANCE Logo" 
+                <img
+                  src="/lovable-uploads/img_logo_finance.png"
+                  alt="B4FINANCE Logo"
                   className="h-12 w-auto self-center"
                 />
                 <h2 className="text-5xl md:text-6xl font-bold text-primary">B4FINANCE</h2>
@@ -146,7 +148,7 @@ const Index = () => {
               <p className="text-base text-primary/90" style={{ color: '#052C65' }}>
                 B4finance est une plateforme SaaS qui exploite l'IA pour automatiser le processus KYC/AML et simplifier les souscriptions aux fonds en éliminant les tâches manuelles et en facilitant la signature des sous-documents. Cela permet aux General Partners de se concentrer sur la relation investisseurs, d'optimiser les opérations et de garantir une conformité réglementaire totale.
               </p>
-              <Button 
+              <Button
                 className="bg-primary hover:bg-primary/90 text-white"
                 onClick={() => setShowProjectDetails(!showProjectDetails)}
               >
@@ -154,20 +156,20 @@ const Index = () => {
                 <ArrowRight className={`ml-2 w-4 h-4 transition-transform ${showProjectDetails ? 'rotate-90' : ''}`} />
               </Button>
             </div>
-            
+
             {/* Right Column - Image */}
             <div className="md:w-1/2 relative">
               <div className="relative overflow-visible">
-                <img 
-                  src="/lovable-uploads/img_laptop.png" 
-                  alt="B4FINANCE Platform" 
+                <img
+                  src="/lovable-uploads/img_laptop.png"
+                  alt="B4FINANCE Platform"
                   className="ml-auto max-w-full h-auto object-cover object-left"
                   style={{ maxWidth: '120%', marginRight: '-13%' }}
                 />
               </div>
             </div>
           </div>
-          
+
           {/* Project Details Section - Moved here to appear below the welcome section */}
           <div className="mt-16">
             <ProjectDetails isOpen={showProjectDetails} />
@@ -175,384 +177,56 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Section */}
-      <section id="case-studies" className="py-20 px-4">
+      {/* Case Studies Section2 - AttronAI */}
+      <section id="attron-ai" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Real Case, Real Work </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Don't just take our word. Here are what our customers say about us!</p>
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left Column - Content */}
+            <div className="md:w-1/2 space-y-6">
+              <div className="inline-flex items-center text-primary text-sm font-medium whitespace-pre">
+                EdTech  |    B2B2C
+              </div>
+              <div className="flex items-center gap-4">
+                {/* <img 
+                  src="/lovable-uploads/img_laptop.png" 
+                  alt="AttronAI Logo" 
+                  className="h-12 w-auto self-center"
+                /> */}
+                <h2 className="text-5xl md:text-6xl font-bold text-primary">ATTRON AI</h2>
+              </div>
+              <p className="text-base text-primary/90" style={{ color: '#052C65' }}>
+                AttornAI est une plateforme EdTech basée sur l’IA générative qui aide les étudiants à se préparer à l’examen du barreau, tout en proposant également un modèle B2B destiné aux institutions et au monde académique. </p>
+              <Button
+                className="bg-primary hover:bg-primary/90 text-white"
+                onClick={() => setShowProjectDetailsAttron(!showProjectDetailsAttron)}
+              >
+                Voir le projet
+                <ArrowRight className={`ml-2 w-4 h-4 transition-transform ${showProjectDetailsAttron ? 'rotate-90' : ''}`} />
+              </Button>
+            </div>
+
+            {/* Right Column - Image */}
+            <div className="md:w-1/2 relative">
+              <div className="relative overflow-visible">
+                <img
+                  src="/lovable-uploads/img_laptop.png"
+                  alt="AttronAI Platform"
+                  className="ml-auto max-w-full h-auto object-cover object-left"
+                  style={{ maxWidth: '120%', marginRight: '-13%' }}
+                />
+              </div>
+            </div>
           </div>
 
-          <div ref={caseStudiesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 scroll-animate ${caseStudiesAnimation.isVisible ? 'visible' : ''}`}>
-            {caseStudiesData.map((study, index) => <Card key={study.id} className={`glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-${Math.min(index + 1, 6)}`}>
-                <CardHeader>
-                  <Badge variant="secondary" className="w-fit mb-2">{study.subtitle}</Badge>
-                  <CardTitle className="text-xl">{study.title}</CardTitle>
-                  <CardDescription className="text-sm">
-                    {study.summary}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 gap-4 mb-4">
-                    {study.stats.map((stat, index) => <div key={index} className="text-center p-3 bg-muted rounded-lg">
-                        <div className="text-2xl font-bold text-primary">{stat.value}</div>
-                        <div className="text-sm text-muted-foreground">{stat.label}</div>
-                      </div>)}
-                  </div>
-                  
-                  <Dialog open={openDialog === study.id} onOpenChange={open => setOpenDialog(open ? study.id : null)}>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" className="w-full">
-                        View Details
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl p-0 border-0">
-                      <div className="bg-gradient-to-br from-background via-background to-background/95 rounded-2xl overflow-hidden">
-                        <DialogHeader className="px-8 pt-8 pb-6 border-b border-border/50">
-                          <DialogTitle className="text-3xl font-bold bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                            {study.title}
-                          </DialogTitle>
-                          <DialogDescription className="text-lg text-muted-foreground mt-2">
-                            {study.subtitle}
-                          </DialogDescription>
-                        </DialogHeader>
-                        
-                        <div className="px-8 py-8">
-                          {study.id === "ai-chatbot" && <div className="space-y-10">
-                              {/* The Client */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                                    <Building2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Client</h3>
-                                </div>
-                                <p className="text-lg text-muted-foreground leading-relaxed pl-13">
-                                  A Parisian clothing store integrates our 24/7 AI Chatbot to drive revenue and reduce customer support workload, resulting in over <span className="font-bold text-primary">€14,694</span> in sales.
-                                </p>
-                                <Separator className="mt-6 opacity-30" />
-                              </div>
-                              
-                              {/* The Challenge */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
-                                    <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
-                                </div>
-                                <ul className="space-y-4 pl-13">
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      <span className="font-semibold text-primary">50–55%</span> of online shopping occurs when support teams are offline—causing delays, confusion, or cart abandonment.
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Employees wasted time answering repetitive customer queries.
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Shoppers had difficulty finding the right products quickly.
-                                    </span>
-                                  </li>
-                                </ul>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* Our Solutions */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                                    <Lightbulb className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">Our Solutions</h3>
-                                </div>
-                                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/10 dark:to-blue-900/10 rounded-xl p-6 ml-13">
-                                  <p className="text-lg text-muted-foreground leading-relaxed">
-                                    Recognizing the sales loss due to time zone differences, weekends, and language barriers, the client adopted our AI chatbot. The chatbot was embedded into their website to provide instant support around the clock.
-                                  </p>
-                                </div>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* The Results */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                                    <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Results</h3>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-13">
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">30+</div>
-                                    <div className="text-muted-foreground">hours of support time saved by automating routine inquiries</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">80%</div>
-                                    <div className="text-muted-foreground">of questions like "Where's my order?" were resolved without human agents</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">20%</div>
-                                    <div className="text-muted-foreground">of queries were smoothly escalated to human support when needed</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">486+</div>
-                                    <div className="text-muted-foreground">customer chats handled in 90 days, cutting manual workload and boosting response speed</div>
-                                  </div>
-                                </div>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* Tech Stack */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
-                                    <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
-                                </div>
-                                <div className="flex flex-wrap gap-3 pl-13">
-                                  {["Python", "Node.js", "Angular"].map(tech => <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
-                                      {tech}
-                                    </Badge>)}
-                                </div>
-                              </div>
-                            </div>}
-                          
-                          {study.id === "smart-search" && <div className="space-y-10">
-                              {/* The Client */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                                    <Building2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Client</h3>
-                                </div>
-                                <p className="text-lg text-muted-foreground leading-relaxed pl-13">
-                                  A German wall art stores integrates smart search and recommendation features into their ecommerce platform, which helps them make <span className="font-bold text-primary">15,000 euros</span> in the last 90 days with an increase of <span className="font-bold text-primary">0.8 products/basket</span>
-                                </p>
-                                <Separator className="mt-6 opacity-30" />
-                              </div>
-                              
-                              {/* The Challenge */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
-                                    <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
-                                </div>
-                                <ul className="space-y-4 pl-13">
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Struggling to show customers the right related products to boost cross-selling opportunities
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Needed to improve the overall user experience in their webshop with a more intuitive search to help drive sales
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Wanted to increase upselling with more relevant product suggestions instead of low-margin items
-                                    </span>
-                                  </li>
-                                </ul>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* Our Solutions */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                                    <Lightbulb className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">Our Solutions</h3>
-                                </div>
-                                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/10 dark:to-blue-900/10 rounded-xl p-6 ml-13">
-                                  <p className="text-lg text-muted-foreground leading-relaxed">
-                                    Realizing the challenge and the need to have an advanced functionality that can surpass the standard search bar of their webshop. With smart search engine, they have been able to display precisely what the customer wants and have removed any manual work associated.
-                                  </p>
-                                </div>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* The Results */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                                    <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Results</h3>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pl-13">
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">12.5%</div>
-                                    <div className="text-muted-foreground">increase in revenue</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">23%</div>
-                                    <div className="text-muted-foreground">increase in basket size</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">14%</div>
-                                    <div className="text-muted-foreground">higher average order value</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">100+</div>
-                                    <div className="text-muted-foreground">most commonly spelled variations handled</div>
-                                  </div>
-                                </div>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* Tech Stack */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
-                                    <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
-                                </div>
-                                <div className="flex flex-wrap gap-3 pl-13">
-                                  {["Python", "Java", "Tailwind CSS"].map(tech => <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
-                                      {tech}
-                                    </Badge>)}
-                                </div>
-                              </div>
-                            </div>}
-                          
-                          {study.id === "personalization" && <div className="space-y-10">
-                              {/* The Client */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center">
-                                    <Building2 className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Client</h3>
-                                </div>
-                                <p className="text-lg text-muted-foreground leading-relaxed pl-13">
-                                  A German vaping web shops integrates smart search and recommendation features into their ecommerce platform, which helped them manage their large inventory through continuous and autonomous product recommendation
-                                </p>
-                                <Separator className="mt-6 opacity-30" />
-                              </div>
-                              
-                              {/* The Challenge */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center">
-                                    <AlertTriangle className="w-5 h-5 text-orange-600 dark:text-orange-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Challenge</h3>
-                                </div>
-                                <ul className="space-y-4 pl-13">
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Faced time-consuming, manual management of product listings and recommendations
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Their large inventory made it difficult to deliver personalized shopping experiences
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Data from manual recommendations quickly became outdated
-                                    </span>
-                                  </li>
-                                  <li className="flex items-start gap-4">
-                                    <div className="w-2 h-2 bg-primary rounded-full mt-3 flex-shrink-0"></div>
-                                    <span className="text-lg text-muted-foreground leading-relaxed">
-                                      Inefficient manually adding recommended product for each new item
-                                    </span>
-                                  </li>
-                                </ul>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* Our Solutions */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                                    <Lightbulb className="w-5 h-5 text-green-600 dark:text-green-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">Our Solutions</h3>
-                                </div>
-                                <div className="bg-gradient-to-r from-green-50 to-blue-50 dark:from-green-900/10 dark:to-blue-900/10 rounded-xl p-6 ml-13">
-                                  <p className="text-lg text-muted-foreground leading-relaxed">
-                                    Want to say goodbye to manual work and freeing up their time to focus on the more important aspects like business strategy and product development, they decided to integrate automated recommendation engine into their platform
-                                  </p>
-                                </div>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* The Results */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center">
-                                    <TrendingUp className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">The Results</h3>
-                                </div>
-                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 pl-13">
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">108%</div>
-                                    <div className="text-muted-foreground">Increase in Conversion Rate</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">25%</div>
-                                    <div className="text-muted-foreground">Higher Average Order Value which allows customer to explore additional products</div>
-                                  </div>
-                                  <div className="bg-gradient-to-br from-primary/5 to-primary/10 rounded-xl p-6 border border-primary/20">
-                                    <div className="text-3xl font-bold text-primary mb-2">39%</div>
-                                    <div className="text-muted-foreground">Increase in Basket Size</div>
-                                  </div>
-                                </div>
-                                <Separator className="mt-8 opacity-30" />
-                              </div>
-                              
-                              {/* Tech Stack */}
-                              <div className="group">
-                                <div className="flex items-center gap-3 mb-6">
-                                  <div className="w-10 h-10 bg-gray-100 dark:bg-gray-900/30 rounded-lg flex items-center justify-center">
-                                    <Code2 className="w-5 h-5 text-gray-600 dark:text-gray-400" />
-                                  </div>
-                                  <h3 className="text-2xl font-bold text-foreground">Tech Stack</h3>
-                                </div>
-                                <div className="flex flex-wrap gap-3 pl-13">
-                                  {["Python", "Java", "Tailwind CSS"].map(tech => <Badge key={tech} variant="secondary" className="px-4 py-2 text-base font-medium">
-                                      {tech}
-                                    </Badge>)}
-                                </div>
-                              </div>
-                            </div>}
-                        </div>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                </CardContent>
-              </Card>)}
-          </div>
+          {/* Project Details Section */}
+          <ProjectDetailsAttronAI isOpen={showProjectDetailsAttron} />
         </div>
       </section>
+
       {/* Process Section */}
       <section id="process" className="py-20 px-4" style={{
-      backgroundColor: '#F6F8FC'
-    }}>
+        backgroundColor: '#F6F8FC'
+      }}>
         <div className="container mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Process</h2>
@@ -568,22 +242,22 @@ const Index = () => {
               <div className="absolute top-12 right-1/6 w-0.5 h-32 bg-muted-foreground/20"></div>
               {/* Horizontal line for bottom row */}
               <div className="absolute top-44 left-1/6 right-1/6 h-0.5 bg-muted-foreground/20"></div>
-              
+
               {/* Timeline nodes */}
-              
+
               <div className="absolute top-11 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
               <div className="absolute top-11 right-1/6 w-2 h-2 bg-primary rounded-full -mr-1"></div>
-              
+
               <div className="absolute top-43 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
-              
+
             </div>
 
             {/* Mobile Timeline */}
             <div className="lg:hidden absolute left-8 top-0 bottom-0 w-0.5 bg-muted-foreground/20"></div>
             <div className="lg:hidden">
               {[...Array(6)].map((_, i) => <div key={i} className="absolute left-7 w-2 h-2 bg-primary rounded-full" style={{
-              top: `${i * 160 + 48}px`
-            }}></div>)}
+                top: `${i * 160 + 48}px`
+              }}></div>)}
             </div>
 
             {/* Process Cards Grid */}
@@ -664,8 +338,8 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => setEbookDialogOpen(true)}
                 >
@@ -683,8 +357,8 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="w-full"
                   onClick={() => window.open('https://bkplussoft.com/blog/', '_blank')}
                 >
@@ -727,7 +401,7 @@ const Index = () => {
               <div className="flex flex-col mb-4">
                 <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BKPlus Software </span>
                 <span className="text-sm text-muted-foreground leading-tight">
-              </span>
+                </span>
               </div>
               <p className="text-muted-foreground">
                 Transforming eCommerce with intelligent AI personalization solutions.
@@ -784,7 +458,7 @@ const Index = () => {
                       Send us your Ecommerce site, and we'll get back to you as soon as possible!
                     </p>
                   </div>
-                  
+
                   {/* Social Media Icons */}
                   <div className="flex gap-4 pt-6">
                     <a
@@ -813,37 +487,37 @@ const Index = () => {
                   onSubmit={async (e) => {
                     e.preventDefault();
                     setIsSubmitting(true);
-                    
+
                     const form = e.currentTarget;
                     const formData = new FormData(form);
-                     
-                     // Add FormSubmit configuration
-                     formData.append('_captcha', 'false');
-                     formData.append('_next', window.location.origin);
-                     formData.append('_subject', 'New Platform Audit Request from Website');
-                     
-                     try {
-                       const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
-                         method: "POST",
-                         body: formData
-                       });
-                       
-                       if (response.ok) {
-                         toast({
-                           title: "Message sent successfully!",
-                           description: "We'll get back to you as soon as possible.",
-                         });
-                         setContactDialogOpen(false);
-                         form?.reset();
-                       } else {
-                         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
-                       }
-                     } catch (error) {
-                       console.error("Form submission error:", error);
-                       toast({
-                         title: "Failed to send message",
-                         description: error instanceof Error ? error.message : "Please try again later.",
-                         variant: "destructive",
+
+                    // Add FormSubmit configuration
+                    formData.append('_captcha', 'false');
+                    formData.append('_next', window.location.origin);
+                    formData.append('_subject', 'New Platform Audit Request from Website');
+
+                    try {
+                      const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
+                        method: "POST",
+                        body: formData
+                      });
+
+                      if (response.ok) {
+                        toast({
+                          title: "Message sent successfully!",
+                          description: "We'll get back to you as soon as possible.",
+                        });
+                        setContactDialogOpen(false);
+                        form?.reset();
+                      } else {
+                        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                      }
+                    } catch (error) {
+                      console.error("Form submission error:", error);
+                      toast({
+                        title: "Failed to send message",
+                        description: error instanceof Error ? error.message : "Please try again later.",
+                        variant: "destructive",
                       });
                     } finally {
                       setIsSubmitting(false);
@@ -936,9 +610,9 @@ const Index = () => {
       </Dialog>
 
       {/* E-book Dialog */}
-      <EbookDialog 
-        open={ebookDialogOpen} 
-        onOpenChange={setEbookDialogOpen} 
+      <EbookDialog
+        open={ebookDialogOpen}
+        onOpenChange={setEbookDialogOpen}
       />
     </div>
   );
