@@ -13,6 +13,7 @@ import { EbookDialog } from "@/components/EbookDialog";
 import { useToast } from "@/hooks/use-toast";
 import { ProjectDetails } from "@/components/ProjectDetails";
 import ProjectDetailsAttronAI from "@/components/ProjectDetailsAttronAI";
+import ProjectDetailsGPGAMALL from "@/components/ProjectDetailsGPGAMALL";
 
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
@@ -21,6 +22,7 @@ const Index = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showProjectDetails, setShowProjectDetails] = useState(false);
   const [showProjectDetailsAttron, setShowProjectDetailsAttron] = useState(false);
+  const [showProjectDetailsGpgamall, setShowProjectDetailsGpgamall] = useState(false);
   const { toast } = useToast();
 
   // Animation hooks for different sections
@@ -44,9 +46,9 @@ const Index = () => {
           </div>
           <nav className="hidden md:flex space-x-8">
             <a href="#welcome" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Accueil</a>
-            <a href="#case-studies" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Études de cas</a>
-            <a href="#process" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Nos Expertises</a>
-            <a href="#resources" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
+            <a href="#case-studies1" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Études de cas</a>
+            <a href="#expertise" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Nos Expertises</a>
+            <a href="#review" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
           </nav>
           <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
             <DialogTrigger asChild>
@@ -59,7 +61,7 @@ const Index = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="relative py-20 px-4 bg-cover bg-center min-h-[80vh] flex items-center" style={{ backgroundImage: 'url(/lovable-uploads/bg_hero_section.png)' }}>
+      <section id="welcome" className="relative py-20 px-4 bg-cover bg-center min-h-[80vh] flex items-center" style={{ backgroundImage: 'url(/lovable-uploads/bg_hero_section.png)' }}>
         <div className="absolute inset-0"></div>
         {/* AI Image in bottom left corner */}
         <div className="absolute left-20 bottom-20 w-[271px] h-[271px] opacity-90 hover:opacity-100 transition-opacity ">
@@ -129,7 +131,7 @@ const Index = () => {
       </section>
 
       {/* Case Studies Section1 */}
-      <section id="welcome" className="py-20 px-4 bg-white">
+      <section id="case-studies1" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left Column - Content */}
@@ -177,8 +179,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Case Studies Section2 - AttronAI */}
-      <section id="attron-ai" className="py-20 px-4 bg-white">
+      {/* Case Studies Section2 - ATTORN AI */}
+      <section id="case-studies2" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-12">
             {/* Left Column - Content */}
@@ -188,11 +190,11 @@ const Index = () => {
               </div>
               <div className="flex items-center gap-4">
                 {/* <img 
-                  src="/lovable-uploads/img_laptop.png" 
-                  alt="AttronAI Logo" 
+                  src="/lovable-uploads/img_laptop_attorn_ai.png" 
+                  alt="AttornAI Logo" 
                   className="h-12 w-auto self-center"
                 /> */}
-                <h2 className="text-5xl md:text-6xl font-bold text-primary">ATTRON AI</h2>
+                <h2 className="text-5xl md:text-6xl font-bold text-primary">ATTORN AI</h2>
               </div>
               <p className="text-base text-primary/90" style={{ color: '#052C65' }}>
                 AttornAI est une plateforme EdTech basée sur l’IA générative qui aide les étudiants à se préparer à l’examen du barreau, tout en proposant également un modèle B2B destiné aux institutions et au monde académique. </p>
@@ -209,8 +211,8 @@ const Index = () => {
             <div className="md:w-1/2 relative">
               <div className="relative overflow-visible">
                 <img
-                  src="/lovable-uploads/img_laptop.png"
-                  alt="AttronAI Platform"
+                  src="/lovable-uploads/img_laptop_attorn_ai.png"
+                  alt="AttornAI Platform"
                   className="ml-auto max-w-full h-auto object-cover object-left"
                   style={{ maxWidth: '120%', marginRight: '-13%' }}
                 />
@@ -223,150 +225,60 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section id="process" className="py-20 px-4" style={{
-        backgroundColor: '#F6F8FC'
-      }}>
+
+
+      {/* Case Studies Section3 - GPGAMALL */}
+      <section id="case-studies3" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Process</h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">Quality Isn’t a Choice But Built Into Everything We Do</p>
-          </div>
-
-          <div className="relative max-w-6xl mx-auto">
-            {/* Desktop Timeline */}
-            <div className="hidden lg:block">
-              {/* Horizontal line for top row */}
-              <div className="absolute top-12 left-1/6 right-1/6 h-0.5 bg-muted-foreground/20"></div>
-              {/* Vertical line down */}
-              <div className="absolute top-12 right-1/6 w-0.5 h-32 bg-muted-foreground/20"></div>
-              {/* Horizontal line for bottom row */}
-              <div className="absolute top-44 left-1/6 right-1/6 h-0.5 bg-muted-foreground/20"></div>
-
-              {/* Timeline nodes */}
-
-              <div className="absolute top-11 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
-              <div className="absolute top-11 right-1/6 w-2 h-2 bg-primary rounded-full -mr-1"></div>
-
-              <div className="absolute top-43 left-1/2 w-2 h-2 bg-primary rounded-full -ml-1"></div>
-
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left Column - Content */}
+            <div className="md:w-1/2 space-y-6">
+              <div className="inline-flex items-center text-primary text-sm font-medium whitespace-pre">
+                ECommerce  |   Marketplace  |  B2B2C
+              </div>
+              <div className="flex items-center gap-4">
+                <div className="relative h-16 md:h-20 w-auto">
+                  <img 
+                    src="/lovable-uploads/ic_logo_gpgamall.png"
+                    srcSet="/lovable-uploads/ic_logo_gpgamall.png 1x, /lovable-uploads/ic_logo_gpgamall.png 2x"
+                    alt="GPGA Mall Logo" 
+                    className="h-full w-auto object-contain"
+                    style={{
+                      imageRendering: 'crisp-edges',
+                      backfaceVisibility: 'hidden',
+                      transform: 'translateZ(0)'
+                    }}
+                    loading="eager"
+                    width="auto"
+                    height="100%"
+                  />
+                </div>
+              </div>
+              <p className="text-base text-primary/90" style={{ color: '#052C65' }}>
+                <strong>Une plateforme e-commerce destinée aux consommateurs finaux et aux petites entreprises du secteur de la beauté et des cosmétiques.</strong> Elle propose une vitrine conviviale et un tableau de bord administrateur personnalisé, développé sur la base de la plateforme Saleor, conçu pour simplifier à la fois l’expérience client et les opérations back-end.</p>
+              <Button
+                className="bg-primary hover:bg-primary/90 text-white"
+                onClick={() => setShowProjectDetailsGpgamall(!showProjectDetailsGpgamall)}
+              >
+                Voir le projet
+                <ArrowRight className={`ml-2 w-4 h-4 transition-transform ${showProjectDetailsGpgamall ? 'rotate-90' : ''}`} />
+              </Button>
             </div>
 
-            {/* Mobile Timeline */}
-            <div className="lg:hidden absolute left-8 top-0 bottom-0 w-0.5 bg-muted-foreground/20"></div>
-            <div className="lg:hidden">
-              {[...Array(6)].map((_, i) => <div key={i} className="absolute left-7 w-2 h-2 bg-primary rounded-full" style={{
-                top: `${i * 160 + 48}px`
-              }}></div>)}
-            </div>
-
-            {/* Process Cards Grid */}
-            <div ref={processAnimation.ref} className={`grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12 scroll-animate ${processAnimation.isVisible ? 'visible' : ''}`}>
-              {/* Row 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-1">
-                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                  <Search className="w-6 h-6 text-blue-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Discovery </h3>
-                <p className="text-muted-foreground text-sm">Understand the clients' businesses demands. Do a comprehensive research</p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-2">
-                <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                  <PenTool className="w-6 h-6 text-purple-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Planning & Design</h3>
-                <p className="text-muted-foreground text-sm">Create a detailed plan to outline project's milestones, timelines, deliverables and a Work Breakdown Structure </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-3">
-                <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                  <Code className="w-6 h-6 text-green-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Development </h3>
-                <p className="text-muted-foreground text-sm">Utilize various programming languages and automation tools to build an AI-powered, responsive platform with optimized search, fast load times, and reduced manual work.</p>
-              </div>
-
-              {/* Row 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-4">
-                <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                  <Settings className="w-6 h-6 text-orange-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Testing </h3>
-                <p className="text-muted-foreground text-sm">Testing the website the website's compatibility, security and performance to ensure that it meets the requirement standards and free from bug & errors </p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-5">
-                <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4">
-                  <Rocket className="w-6 h-6 text-red-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Deploy & Deliver</h3>
-                <p className="text-muted-foreground text-sm">Deploy the features or website to the client's server, ensuring stable performance and full accessibility.</p>
-              </div>
-
-              <div className="bg-white rounded-2xl p-6 shadow-sm glow-hover card-hover relative lg:pl-8 delay-6">
-                <div className="w-12 h-12 bg-teal-100 rounded-lg flex items-center justify-center mb-4">
-                  <Shield className="w-6 h-6 text-teal-600" />
-                </div>
-                <h3 className="text-lg font-semibold mb-2">Maintenance </h3>
-                <p className="text-muted-foreground text-sm">Provide ongoing maintenance and support to monitor system health, resolve issues promptly, and implement necessary updates.</p>
+            {/* Right Column - Image */}
+            <div className="md:w-1/2 relative">
+              <div className="relative overflow-visible">
+                <img
+                  src="/lovable-uploads/img_laptop_gpgamall_ai.png"
+                  alt="GPGAMALL Platform"
+                  className="ml-auto max-w-full h-auto object-cover object-left"
+                  style={{ maxWidth: '120%', marginRight: '-13%' }}
+                />
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Resources Section */}
-      <section id="resources" className="py-20 px-4 bg-muted/50">
-        <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Expert Resources & Insights
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Free resources to help you understand and implement AI personalization
-            </p>
-          </div>
-
-          <div ref={resourcesAnimation.ref} className={`grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto scroll-animate ${resourcesAnimation.isVisible ? 'visible' : ''}`}>
-            <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300">
-              <CardHeader>
-                <BookOpen className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Downloadable E-book</CardTitle>
-                <CardDescription>
-                  Download free e-book on how to future-proof your site and turn trends into profit
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button
-                  variant="outline"
-                  className="w-full"
-                  onClick={() => setEbookDialogOpen(true)}
-                >
-                  Download Now
-                </Button>
-              </CardContent>
-            </Card>
-
-            <Card className="glow-hover card-hover hover:shadow-lg transition-all duration-300 delay-1">
-              <CardHeader>
-                <Library className="w-8 h-8 text-primary mb-2" />
-                <CardTitle>Knowledge Center</CardTitle>
-                <CardDescription>
-                  Read articles on customer stories, ecommerce trends, and best practices
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <Button
-                  variant="outline"
-                  className="w-full"
-                  onClick={() => window.open('https://bkplussoft.com/blog/', '_blank')}
-                >
-                  Click Now
-                </Button>
-              </CardContent>
-            </Card>
-          </div>
+          {/* Project Details gpgmall */}
+          <ProjectDetailsGPGAMALL isOpen={showProjectDetailsGpgamall} />
         </div>
       </section>
 
