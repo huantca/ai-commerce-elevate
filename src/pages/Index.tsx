@@ -6,7 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2, Facebook, Linkedin, BookOpen, Library } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { EbookDialog } from "@/components/EbookDialog";
@@ -23,7 +23,43 @@ const Index = () => {
   const [showProjectDetails, setShowProjectDetails] = useState(false);
   const [showProjectDetailsAttron, setShowProjectDetailsAttron] = useState(false);
   const [showProjectDetailsGpgamall, setShowProjectDetailsGpgamall] = useState(false);
+  const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const { toast } = useToast();
+
+  const testimonials = [
+    {
+      name: 'Daniel Finn',
+      product: 'Fondateur, Now Health International',
+      des: 'Leurs produits logiciels sont de haute qualité, fiables et largement utilisés et respectés dans le secteur.',
+    },
+    {
+      name: 'Kim Jack',
+      product: 'Fondateur, Carnival Supply Co., Ltd',
+      des: 'Ils étaient fiables et dévoués. Quelle excellente expérience !',
+    },
+    {
+      name: 'Joel',
+      product: 'Fondateur, Attorn AI',
+      des: 'Leur capacité à transformer une idée vague en un MVP utilisable et bien conçu était impressionnante.',
+    }
+  ];
+
+  const nextTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  };
+
+  const prevTestimonial = () => {
+    setCurrentTestimonial((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+  };
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextTestimonial();
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   // Animation hooks for different sections
   const heroAnimation = useScrollAnimation();
@@ -47,8 +83,8 @@ const Index = () => {
           <nav className="hidden md:flex space-x-8">
             <a href="#welcome" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Accueil</a>
             <a href="#case-studies1" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Études de cas</a>
-            <a href="#expertise" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Nos Expertises</a>
-            <a href="#review" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
+            <a href="#section_review" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Nos Expertises</a>
+            <a href="#section_cta" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
           </nav>
           <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
             <DialogTrigger asChild>
@@ -225,8 +261,6 @@ const Index = () => {
         </div>
       </section>
 
-
-
       {/* Case Studies Section3 - GPGAMALL */}
       <section id="case-studies3" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
@@ -238,10 +272,10 @@ const Index = () => {
               </div>
               <div className="flex items-center gap-4">
                 <div className="relative h-16 md:h-20 w-auto">
-                  <img 
+                  <img
                     src="/lovable-uploads/ic_logo_gpgamall.png"
                     srcSet="/lovable-uploads/ic_logo_gpgamall.png 1x, /lovable-uploads/ic_logo_gpgamall.png 2x"
-                    alt="GPGA Mall Logo" 
+                    alt="GPGA Mall Logo"
                     className="h-full w-auto object-contain"
                     style={{
                       imageRendering: 'crisp-edges',
@@ -282,73 +316,232 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Review Section */}
+      <section id="section_review" className="py-20 px-4 bg-white">
+        <div className="container mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-12">
+            {/* Left Column - Video */}
+            <div className="w-full md:w-1/2">
+              <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                      <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-muted-foreground">Vidéo de témoignage client</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column - Text Content */}
+            <div className="w-full md:w-1/2 space-y-5 text-blue800">
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Choix de BKPlus après une comparaison attentive</h3>
+                <p>
+                  Plusieurs propositions ont été examinées au départ, mais BKPlus s'est démarqué dès le premier entretien avec les fondateurs, Frankie et Daniel.
+                </p>
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Gestion d'un projet d'IA très complexe:</h3>
+                <p>
+                  Création d'une plateforme d'IA générative entièrement développée à partir de zéro, sur plus de 18 mois de collaboration continue.
+                </p>
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Respect total de la vision:</h3>
+                <p>
+                  Conception du flux de travail exactement comme prévu, construit étape par étape tout en gardant une vue d'ensemble.</p>
+              </div>
+
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Dévouement et professionnalisme exceptionnels:</h3>
+                <p className="flex items-start">
+                  <span className="mr-2">•</span> Capacité d'adaptation même lorsque les besoins n'étaient pas totalement clairs.
+                </p>
+                <p className="flex items-start">
+                  <span className="mr-2">•</span> Travail en dehors des horaires habituels pour garantir la réussite du projet.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Le Vietnam, un pôle technologique en plein essor:</h3>
+                <p>
+                  Un vivier de talents qualifiés, motivés et compétitifs confirme le rôle croissant du Vietnam dans le paysage technologique asiatique.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Des solutions flexibles pour chaque client:</h3>
+                <p>
+                  Du prototype à grande échelle aux landing pages, sites e-commerce ou services de support continu.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Recommandation forte:</h3>
+                <p>
+                  Engagez BKPlus dès que possible, leur réputation croît rapidement et la demande ne cesse d'augmenter.
+                </p>
+              </div>
+
+              <div className="space-y-1">
+                <h3 className="text-2xl font-bold">Un partenaire de confiance à travers l'Asie:</h3>
+                <p>
+                  Fiable non seulement au Vietnam, mais aussi par rapport aux concurrents de la région.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Customer Service & Reviews Section */}
+      <section id="section_customer_service"  className="py-12 px-4">
+        <div className="container mx-auto">
+          <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
+            <div className="flex flex-col lg:flex-row">
+              {/* Left Side - Customer Service */}
+              <div className="p-8 lg:p-12 lg:w-1/2 flex flex-col items-center text-center lg:text-left lg:items-start">
+                <div className="mb-6 w-full flex justify-center lg:justify-start">
+                  <img
+                    src="/lovable-uploads/img_customer_service.png"
+                    alt="Customer Service"
+                    className="h-auto"
+                    style={{ maxWidth: '140px', maxHeight: '82px' }}
+                  />
+                </div>
+                <p className="text-gray-700">
+                  Avec une approche centrée sur le client et une priorité donnée à la qualité plutôt qu’à la quantité, nous avons collaboré avec des leaders visionnaires pour transformer leurs idées en applications web et mobiles à fort impact. Notre bilan : plus de 10 millions de téléchargements et plus de 20 applications mises en avant sur Google Play et l’App Store, offrant des produits qui génèrent une réelle valeur pour l’entreprise.
+                </p>
+              </div>
+
+              {/* Right Side - Verified Reviews */}
+              <div className="p-8 lg:p-12 lg:w-1/2 bg-gray-50 flex flex-col justify-center">
+                <div className="space-y-4 max-w-md mx-auto w-full">
+                  {[
+                    '15+ avis clients vérifiés',
+                    'Note de 4,9/5 sur Clutch & GoodFirms',
+                    '20+ applications mobiles lancées sur Google Play & App Store',
+                    'Plus de 10M de téléchargements d’applications clients',
+                    'Plus de 500K € levés par nos clients'
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-center">
+                      <img
+                        src="/lovable-uploads/ic_tick_circle.svg"
+                        alt="Tick"
+                        className="w-6 h-6 mr-3"
+                      />
+                      <span className="text-gray-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-primary text-primary-foreground">
-        <div ref={ctaAnimation.ref} className={`container mx-auto text-center scroll-animate ${ctaAnimation.isVisible ? 'visible' : ''}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Ready to Transform Your eCommerce Store?
-          </h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Get a free audit of your current platform and discover how AI personalization can boost your sales by 45% or more.
-          </p>
-          <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
-            <DialogTrigger asChild>
-              <Button size="lg" variant="secondary" className="bg-background text-foreground hover:bg-background/90">
-                Book Your Free Platform Audit
-                <ArrowRight className="ml-2 w-4 h-4" />
-              </Button>
-            </DialogTrigger>
-          </Dialog>
-          <p className="text-sm opacity-75 mt-4">
-            No commitment required • 30-minute consultation • Instant insights
-          </p>
+      <section id="section_cta" className="py-16 md:py-24 text-primary-foreground" style={{ backgroundColor: '#052C65' }}>
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col lg:flex-row items-center">
+            {/* Left Column - Text Content */}
+            <div className="lg:w-1/2 mb-10 lg:mb-0 lg:pr-10">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                Contactez notre chef de projet
+              </h2>
+              <div className="space-y-6">
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Appel découverte – 30 minutes</h3>
+                  <p className="text-primary-foreground/90">
+                    Des Plusieurs propositions ont été examinées au départ, mais BKPlus s'est démarqué dès le premier entretien avec les fondateurs, Frankie et Daniel.
+                  </p>
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold mb-2">Comment tirer le meilleur parti de votre appel</h3>
+                  <p className="text-primary-foreground/90">
+                    Pour rendre notre échange le plus productif possible, préparez vos questions et objectifs à l'avance. Notre chef de projet prendra le temps de comprendre vos besoins spécifiques.
+                  </p>
+                </div>
+                
+                {/* Testimonial Carousel */}
+                <div className="mt-8 pt-6 border-t border-white/20">
+                  <div className="relative">
+                    {/* Fixed height container to prevent layout shift */}
+                    <div className="min-h-[180px] flex flex-col">
+                      <div className="flex items-center justify-between mb-4">
+                      <h4 className="text-lg font-semibold">
+                        {testimonials[currentTestimonial].name}
+                      </h4>
+                      <div className="flex items-center space-x-3">
+                        <button 
+                          onClick={prevTestimonial}
+                          className="p-1.5 hover:bg-white/10 rounded-full transition-colors"
+                          aria-label="Témoignage précédent"
+                        >
+                          <img src="/lovable-uploads/ic_arrow_left.svg" alt="Précédent" className="w-6 h-6" />
+                        </button>
+                        <span className="text-sm font-medium w-5 text-center">
+                          {currentTestimonial + 1}/{testimonials.length}
+                        </span>
+                        <button 
+                          onClick={nextTestimonial}
+                          className="p-1.5 hover:bg-white/10 rounded-full transition-colors"
+                          aria-label="Témoignage suivant"
+                        >
+                          <img src="/lovable-uploads/ic_arrow_right.svg" alt="Suivant" className="w-6 h-6" />
+                        </button>
+                      </div>
+                    </div>
+                      <div className="pt-2 flex-grow flex flex-col">
+                        <p className="text-primary-foreground/90">
+                          {testimonials[currentTestimonial].product}
+                        </p>
+                        <p className="text-primary-foreground/90 mt-2 flex-grow">
+                          {testimonials[currentTestimonial].des}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Right Column - Image */}
+            <div className="lg:w-1/2">
+              <div className="relative w-full h-64 md:h-80 lg:h-[500px] bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
+                <div className="absolute inset-0 flex items-center justify-center p-8">
+                  
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer id="contact" className="bg-background border-t py-12 px-4">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex flex-col mb-4">
-                <span className="text-xl font-bold leading-tight bg-gradient-to-r from-brand-teal to-brand-blue bg-clip-text text-transparent">BKPlus Software </span>
-                <span className="text-sm text-muted-foreground leading-tight">
-                </span>
-              </div>
-              <p className="text-muted-foreground">
-                Transforming eCommerce with intelligent AI personalization solutions.
-              </p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Services</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Smart Search Engine</li>
-                <li>AI-Powered Chatbot</li>
-                <li>Product Recommendations</li>
-                <li>Platform Audit</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Resources</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>Case Studies</li>
-                <li>eBooks & Guides</li>
-                <li>Webinars</li>
-                <li>FAQ Center</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-4">Contact</h4>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li>hello@aicommerce.com</li>
-                <li>+1 (555) 123-4567</li>
-                <li>Book a consultation</li>
-                <li>Request demo</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
-            <p>&copy; 2024 AI Commerce. All rights reserved. • Privacy Policy • Terms of Service</p>
+      <footer id="contact" className="bg-background border-t px-4">
+        <div className="container mx-auto px-4 py-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm text-blue800">
+            <span>Discutons de votre projet!</span>
+            <span className="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              +33 6 50 83 70 77
+            </span>
+            <span>ou</span>
+            <span className="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              contact@bkplussoft.com
+            </span>
+            <span>— du lundi au vendredi</span>
           </div>
         </div>
       </footer>
