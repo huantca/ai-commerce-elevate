@@ -127,7 +127,7 @@ export const ProjectDetails: React.FC<ProjectDetailsProps> = ({ isOpen }) => {
                             </div>
                             <h3 className="font-bold text-left mb-2" style={{ color: '#052C65' }}>Analysis</h3>
                             <p className="text-sm text-left" style={{ color: '#052C65' }}>
-                                Description for analysis item 1 goes here. This is a sample description text.
+                                Diagnostiqué le processus traditionnel de souscription de fonds.
                             </p>
                         </div>
 

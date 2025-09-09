@@ -14,6 +14,7 @@ import { useToast } from "@/hooks/use-toast";
 import { ProjectDetails } from "@/components/ProjectDetails";
 import ProjectDetailsAttronAI from "@/components/ProjectDetailsAttronAI";
 import ProjectDetailsGPGAMALL from "@/components/ProjectDetailsGPGAMALL";
+import CalendlyWidget from '@/components/CalendlyWidget';
 
 const Index = () => {
   const [openDialog, setOpenDialog] = useState<string | null>(null);
@@ -317,27 +318,26 @@ const Index = () => {
       </section>
 
       {/* Review Section */}
-      <section id="section_review" className="py-20 px-4 bg-white">
+      <section id="section_review" className="py-12 md:py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12">
+          <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* Left Column - Video */}
-            <div className="w-full md:w-1/2">
-              <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                      <svg className="w-8 h-8 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <p className="text-sm text-muted-foreground">Vidéo de témoignage client</p>
-                  </div>
-                </div>
+            <div className="w-full lg:w-1/2">
+              <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-lg" style={{ minHeight: '300px', height: '50vh', maxHeight: '600px' }}>
+                <video
+                  className="w-full h-full object-contain"
+                  controls
+                  playsInline
+                  poster="/lovable-uploads/video-poster.jpg"
+                >
+                  <source src="/lovable-uploads/bkplus_service_review.mp4" type="video/mp4" />
+                  Votre navigateur ne prend pas en charge la lecture de vidéos.
+                </video>
               </div>
             </div>
 
             {/* Right Column - Text Content */}
-            <div className="w-full md:w-1/2 space-y-5 text-blue800">
+            <div className="w-full md:w-1/2 space-y-3 text-blue800">
               <div className="space-y-1">
                 <h3 className="text-2xl font-bold">Choix de BKPlus après une comparaison attentive</h3>
                 <p>
@@ -399,7 +399,7 @@ const Index = () => {
       </section>
 
       {/* Customer Service & Reviews Section */}
-      <section id="section_customer_service"  className="py-12 px-4">
+      <section id="section_customer_service" className="py-12 px-4">
         <div className="container mx-auto">
           <div className="bg-white rounded-3xl shadow-lg overflow-hidden">
             <div className="flex flex-col lg:flex-row">
@@ -466,36 +466,36 @@ const Index = () => {
                     Pour rendre notre échange le plus productif possible, préparez vos questions et objectifs à l'avance. Notre chef de projet prendra le temps de comprendre vos besoins spécifiques.
                   </p>
                 </div>
-                
+
                 {/* Testimonial Carousel */}
                 <div className="mt-8 pt-6 border-t border-white/20">
                   <div className="relative">
                     {/* Fixed height container to prevent layout shift */}
                     <div className="min-h-[180px] flex flex-col">
                       <div className="flex items-center justify-between mb-4">
-                      <h4 className="text-lg font-semibold">
-                        {testimonials[currentTestimonial].name}
-                      </h4>
-                      <div className="flex items-center space-x-3">
-                        <button 
-                          onClick={prevTestimonial}
-                          className="p-1.5 hover:bg-white/10 rounded-full transition-colors"
-                          aria-label="Témoignage précédent"
-                        >
-                          <img src="/lovable-uploads/ic_arrow_left.svg" alt="Précédent" className="w-6 h-6" />
-                        </button>
-                        <span className="text-sm font-medium w-5 text-center">
-                          {currentTestimonial + 1}/{testimonials.length}
-                        </span>
-                        <button 
-                          onClick={nextTestimonial}
-                          className="p-1.5 hover:bg-white/10 rounded-full transition-colors"
-                          aria-label="Témoignage suivant"
-                        >
-                          <img src="/lovable-uploads/ic_arrow_right.svg" alt="Suivant" className="w-6 h-6" />
-                        </button>
+                        <h4 className="text-lg font-semibold">
+                          {testimonials[currentTestimonial].name}
+                        </h4>
+                        <div className="flex items-center space-x-3">
+                          <button
+                            onClick={prevTestimonial}
+                            className="p-1.5 hover:bg-white/10 rounded-full transition-colors"
+                            aria-label="Témoignage précédent"
+                          >
+                            <img src="/lovable-uploads/ic_arrow_left.svg" alt="Précédent" className="w-6 h-6" />
+                          </button>
+                          <span className="text-sm font-medium w-5 text-center">
+                            {currentTestimonial + 1}/{testimonials.length}
+                          </span>
+                          <button
+                            onClick={nextTestimonial}
+                            className="p-1.5 hover:bg-white/10 rounded-full transition-colors"
+                            aria-label="Témoignage suivant"
+                          >
+                            <img src="/lovable-uploads/ic_arrow_right.svg" alt="Suivant" className="w-6 h-6" />
+                          </button>
+                        </div>
                       </div>
-                    </div>
                       <div className="pt-2 flex-grow flex flex-col">
                         <p className="text-primary-foreground/90">
                           {testimonials[currentTestimonial].product}
@@ -509,13 +509,11 @@ const Index = () => {
                 </div>
               </div>
             </div>
-            
-            {/* Right Column - Image */}
-            <div className="lg:w-1/2">
-              <div className="relative w-full h-64 md:h-80 lg:h-[500px] bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100">
-                <div className="absolute inset-0 flex items-center justify-center p-8">
-                  
-                </div>
+
+            {/* Right Column - Calendly Widget */}
+            <div className="lg:w-1/2 w-full">
+              <div className="relative w-full bg-white rounded-3xl overflow-hidden shadow-lg border border-gray-100" style={{ aspectRatio: '1/1.2' }}>
+                <CalendlyWidget />
               </div>
             </div>
           </div>
@@ -556,11 +554,11 @@ const Index = () => {
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-3xl lg:text-4xl font-bold text-foreground mb-4">
-                      Contact Us
+                      Discutons de votre projet
+
                     </h2>
                     <p className="text-lg text-muted-foreground leading-relaxed">
-                      We appreciate your interest in BKPlus Software Ecommerce Platform Audit.<br />
-                      Send us your Ecommerce site, and we'll get back to you as soon as possible!
+                      Nous vous remercions de l’intérêt que vous portez à BKPlus Software Consulting.
                     </p>
                   </div>
 
@@ -598,8 +596,10 @@ const Index = () => {
 
                     // Add FormSubmit configuration
                     formData.append('_captcha', 'false');
-                    formData.append('_next', window.location.origin);
-                    formData.append('_subject', 'New Platform Audit Request from Website');
+                    formData.append('_template', 'table');
+                    formData.append('_next', `${window.location.origin}?form_submitted=true`);
+                    formData.append('_subject', 'Nouvelle demande de contact - Site Web');
+                    formData.append('_autoresponse', 'Merci pour votre message. Nous vous recontacterons rapidement.');
 
                     try {
                       const response = await fetch("https://formsubmit.co/giangnth@bkplussoft.com", {
@@ -609,8 +609,8 @@ const Index = () => {
 
                       if (response.ok) {
                         toast({
-                          title: "Message sent successfully!",
-                          description: "We'll get back to you as soon as possible.",
+                          title: "Message envoyé avec succès !",
+                          description: "Nous vous recontacterons dès que possible.",
                         });
                         setContactDialogOpen(false);
                         form?.reset();
@@ -620,8 +620,8 @@ const Index = () => {
                     } catch (error) {
                       console.error("Form submission error:", error);
                       toast({
-                        title: "Failed to send message",
-                        description: error instanceof Error ? error.message : "Please try again later.",
+                        title: "Échec de l'envoi du message",
+                        description: error instanceof Error ? error.message : "Veuillez réessayer plus tard.",
                         variant: "destructive",
                       });
                     } finally {
@@ -632,71 +632,84 @@ const Index = () => {
                 >
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="firstName" className="text-sm font-medium">
-                        First Name *
+                      <Label htmlFor="name_or_company" className="text-sm font-medium">
+                        Nom ou société*
                       </Label>
                       <Input
-                        id="firstName"
-                        name="firstName"
+                        id="name_or_company"
+                        name="name_or_company"
                         type="text"
                         required
                         className="h-12"
-                        placeholder="Enter your first name"
+                        placeholder="Jean Martin"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="lastName" className="text-sm font-medium">
-                        Last Name *
+                      <Label htmlFor="email_contact" className="text-sm font-medium">
+                      Adresse e-mail de contact*
                       </Label>
                       <Input
-                        id="lastName"
-                        name="lastName"
-                        type="text"
+                        id="email_contact"
+                        name="email_contact"
+                        type="email"
                         required
                         className="h-12"
-                        placeholder="Enter your last name"
+                        placeholder="jean.martin@exemple.fr"
+                      />
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="telephone" className="text-sm font-medium">
+                      Numéro de téléphone*
+                      </Label>
+                      <Input
+                        id="telephone"
+                        name="telephone"
+                        type="tel"
+                        required
+                        className="h-12"
+                        placeholder=" +3364527xxxx"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="budget" className="text-sm font-medium">
+                      Budget*
+                      </Label>
+                      <Input
+                        id="budget"
+                        name="budget"
+                        type="number"
+                        required
+                        className="h-12"
                       />
                     </div>
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm font-medium">
-                      Business Email *
+                    <Label htmlFor="business_email" className="text-sm font-medium">
+                      Entreprise
                     </Label>
                     <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      required
-                      className="h-12"
-                      placeholder="Enter your business email"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="company" className="text-sm font-medium">
-                      Company Name *
-                    </Label>
-                    <Input
-                      id="company"
-                      name="company"
+                      id="business_email"
+                      name="business_email"
                       type="text"
-                      required
                       className="h-12"
-                      placeholder="Enter your company name"
+                      placeholder="Agence Martin & Co."
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="website" className="text-sm font-medium">
-                      Website URL
+                    <Label htmlFor="message" className="text-sm font-medium">
+                      Message
                     </Label>
-                    <Input
-                      id="website"
-                      name="website"
-                      type="url"
-                      className="h-12"
-                      placeholder="https://your-website.com"
+                    <textarea
+                      id="message"
+                      name="message"
+                      rows={3}
+                      className="flex w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 min-h-[60px]"
+                      placeholder="Bonjour, je suis intéressé(e) par vos services. Merci de me recontacter rapidement afin que nous puissions échanger à ce sujet. Bien cordialement."
                     />
                   </div>
 
@@ -705,7 +718,7 @@ const Index = () => {
                     disabled={isSubmitting}
                     className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-medium text-lg disabled:opacity-50"
                   >
-                    {isSubmitting ? "Sending..." : "Contact Us"}
+                    {isSubmitting ? "Envoi..." : "Contactez-nous"}
                   </Button>
                 </form>
               </div>
