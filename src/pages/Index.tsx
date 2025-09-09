@@ -6,8 +6,9 @@ import { Separator } from "@/components/ui/separator";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CheckCircle, Search, MessageSquare, Target, BarChart3, Users, Zap, Star, ArrowRight, PenTool, Code, Settings, Rocket, Shield, Building2, AlertTriangle, Lightbulb, TrendingUp, Code2, Facebook, Linkedin, BookOpen, Library } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { caseStudiesData } from "@/components/CaseStudiesData";
+import { useIntersectionObserver } from '@/hooks/useIntersectionObserver';
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import { EbookDialog } from "@/components/EbookDialog";
 import { useToast } from "@/hooks/use-toast";
@@ -26,6 +27,35 @@ const Index = () => {
   const [showProjectDetailsGpgamall, setShowProjectDetailsGpgamall] = useState(false);
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
   const { toast } = useToast();
+  
+  // Video autoplay on scroll
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoContainerRef = useRef<HTMLDivElement>(null);
+  const isVideoVisible = useIntersectionObserver(videoContainerRef, {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.5
+  });
+
+  useEffect(() => {
+    if (!videoRef.current) return;
+
+    const playVideo = async () => {
+      try {
+        if (isVideoVisible) {
+          videoRef.current.volume = 1; // Set volume to max
+          videoRef.current.muted = false; // Ensure not muted
+          await videoRef.current.play();
+        } else {
+          videoRef.current.pause();
+        }
+      } catch (error) {
+        console.log('Autoplay with sound failed:', error);
+      }
+    };
+
+    playVideo();
+  }, [isVideoVisible]);
 
   const testimonials = [
     {
@@ -84,8 +114,7 @@ const Index = () => {
           <nav className="hidden md:flex space-x-8">
             <a href="#welcome" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Accueil</a>
             <a href="#case-studies1" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Études de cas</a>
-            <a href="#section_review" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Nos Expertises</a>
-            <a href="#section_cta" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
+            <a href="#section_review" className="text-muted-foreground hover:text-primary hover:font-medium transition-colors">Avis client</a>
           </nav>
           <Dialog open={contactDialogOpen} onOpenChange={setContactDialogOpen}>
             <DialogTrigger asChild>
@@ -323,11 +352,19 @@ const Index = () => {
           <div className="flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* Left Column - Video */}
             <div className="w-full lg:w-1/2">
-              <div className="relative bg-gray-100 rounded-lg overflow-hidden shadow-lg" style={{ minHeight: '300px', height: '50vh', maxHeight: '600px' }}>
+              <div 
+                ref={videoContainerRef}
+                className="relative bg-gray-100 rounded-lg overflow-hidden shadow-lg" 
+                style={{ minHeight: '300px', height: '50vh', maxHeight: '600px' }}
+              >
                 <video
+                  ref={videoRef}
                   className="w-full h-full object-contain"
                   controls
                   playsInline
+                  loop
+                  muted={false}
+                  autoPlay
                   poster="/lovable-uploads/video-poster.jpg"
                 >
                   <source src="/lovable-uploads/bkplus_service_review.mp4" type="video/mp4" />
