@@ -7,7 +7,7 @@ export function ProjectDetailsAttronAI({ isOpen }: ProjectDetailsAttronAIProps) 
         <div
             className={`transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 mt-8' : 'opacity-0 mt-0 h-0 overflow-hidden'}`}
         >
-            <div className="bg-gray-50 rounded-xl p-4 md:p-8">
+            <div className="bg-white rounded-xl p-4 md:p-8">
                 <div className="space-y-12">
                     {/* CONTEXTE Section */}
                     <div className="space-y-8">
@@ -183,9 +183,9 @@ export function ProjectDetailsAttronAI({ isOpen }: ProjectDetailsAttronAIProps) 
                                         </div>
                                         <div className="md:w-1/2 flex items-right justify-end">
                                             <img 
-                                                src="/lovable-uploads/img_laptop.png" 
+                                                src="/lovable-uploads/img_ui_ux.png" 
                                                 alt="Laptop interface preview" 
-                                                className="w-40 h-44 object-contain"
+                                                className="w-44 h-40 object-contain"
                                             />
                                         </div>
                                     </div>
